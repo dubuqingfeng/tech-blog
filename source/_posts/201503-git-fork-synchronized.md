@@ -1,11 +1,16 @@
-Title: git-fork 项目后与原项目进行同步
-Date: 2015-03-04 12:22
-Modified: 2015-03-04 12:22
-Category: 【github】
-Tags: git,fork
-Slug: 201503-git-fork-synchronized
-Author: admin
-summary: 每fork一个项目后，当进行改动，然后push上去以后，如何进行保持与原作者的同步，以及git的一些协同命令和Pull Request。
+---
+title: git-fork 项目后与原项目进行同步
+date: 2015-03-04 12:22
+updated: 2015-03-04 12:22
+tags: 
+  - git
+  - fork
+excerpt: 每fork一个项目后，当进行改动，然后push上去以后，如何进行保持与原作者的同步，以及git的一些协同命令和Pull Request。
+categories: git
+permalink: 201503-git-fork-synchronized.html
+author: admin
+---
+
 
 #####0x01 与原项目进行同步
 

@@ -1,11 +1,17 @@
-Title: findViewById 注解、泛型、反射、MVVM
-Date: 2016-06-29 9:36 
-Modified: 2016-06-29 21:31 
-Category: 【Android】 
-Tags: Android,findViewById,注解,反射
-Slug: 201606-android-develop-annotations-reflect-mvvm
-Author: admin 
-summary: 从传统的findViewById出发，经历不同的方式，注解，泛型，反射，最后的数据绑定，以及其源码实现。
+---
+title: findViewById 注解、泛型、反射、MVVM
+date: 2016-06-29 9:36
+updated: 2016-06-29 21:31
+tags: 
+  - Android
+  - findViewById
+  - 注解
+  - 反射
+excerpt: 从传统的findViewById出发，经历不同的方式，注解，泛型，反射，最后的数据绑定，以及其源码实现。
+categories: Android
+permalink: 201606-android-develop-annotations-reflect-mvvm.html
+author: admin
+---
 
 #####0x00	TOC：
 >常规

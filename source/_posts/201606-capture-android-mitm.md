@@ -1,11 +1,15 @@
-Title: 捕捉 android 网络流量及中间人攻击
-Date: 2016-06-17 17:42
-Modified: 2016-06-18 18:34
-Category: 【Android安全】
-Tags: Android安全,mitm
-Slug: 201606-capture-android-mitm
-Author: admin
-summary: 一些捕捉 android 网路流量的方式以及认识中间人攻击的方式和利用
+---
+title: 捕捉 android 网络流量及中间人攻击
+date: 2016-06-17 17:42
+updated: 2016-06-18 18:34
+tags: 
+  - Android安全
+  - mitm
+excerpt: 一些捕捉 android 网路流量的方式以及认识中间人攻击的方式和利用
+categories: Android安全
+permalink: 201606-capture-android-mitm.html
+author: admin
+---
 
 #####0x01	前言：
 作为开发者或者安全研究员，开发或分析一些与网络相关的程序时，必然要涉及到 HTTP 协议，而了解信息的传输，是非常必要的。所以我们需要抓取并控制到网路流量，并且需要对中间人攻击有一定的认识。

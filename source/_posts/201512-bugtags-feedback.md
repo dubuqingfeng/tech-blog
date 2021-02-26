@@ -1,11 +1,15 @@
-Title: Bugtags使用感触
-Date: 2015-12-18 23:22
-Modified: 2015-12-19 01:34
-Category: 【Bugtags】
-Tags: Bug管理,Bugtags
-Slug: 201512-bugtags-feedback
-Author: admin
-summary: 写在Bugtags上线Crash发生趋势之际，以及英语四级前夜。仅感触，无其他。
+---
+title: Bugtags使用感触
+date: 2015-12-18 23:22
+updated: 2015-12-19 01:34
+tags: 
+  - Bug管理
+  - Bugtags
+excerpt: 写在Bugtags上线Crash发生趋势之际，以及英语四级前夜。仅感触，无其他。
+categories: Bugtags
+permalink: 201512-bugtags-feedback.html
+author: admin
+---
 
 #####0x01	前言、
 写在Bugtags上线Crash发生趋势之际，以及英语四级前夜。仅感触，无其他。

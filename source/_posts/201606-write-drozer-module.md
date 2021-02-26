@@ -1,11 +1,15 @@
-Title: 自己动手写 drozer 模块
-Date: 2016-06-08 17:42
-Modified: 2016-06-09 18:34
-Category: 【Android安全】
-Tags: Android安全,drozer
-Slug: 201606-write-drozer-module
-Author: admin
-summary: drozer 采用了模块化的设计，用户可以自由地定制一些Python模块和dex模块。
+---
+title: 自己动手写 drozer 模块
+date: 2016-06-08 17:42
+updated: 2016-06-09 18:34
+tags: 
+  - Android安全
+  - drozer
+excerpt: drozer 采用了模块化的设计，用户可以自由地定制一些Python模块和dex模块。
+categories: Android安全
+permalink: 201606-write-drozer-module.html
+author: admin
+---
 
 #####0x01    前言及TOC
 drozer 是一个 android 渗透与测试比较出名的一个框架，其源码托管在 [GitHub](https://github.com/mwrlabs/drozer)。我们可以利用其进行一些自动化测试工作，以及测试一些拒绝式服务，写一些 exploit 等。

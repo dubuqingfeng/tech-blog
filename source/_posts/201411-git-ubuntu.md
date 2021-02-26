@@ -1,12 +1,15 @@
-Title: ubuntu 下 git 入门与配置
-Date: 2014-11-18 14:51
-Modified: 2014-11-18 21:25
-Category: 【git】
-Tags: git,ubuntu
-Slug: 201411-git-ubuntu
-Author: admin
-summary: 记录一下在ubuntu下的git入门及其配置，以及git常用的命令。
-
+---
+title: ubuntu 下 git 入门与配置
+date: 2014-11-18 14:51
+updated: 2014-10-19 12:42
+tags: 
+  - git
+  - ubuntu
+excerpt: 记录一下在ubuntu下的git入门及其配置，以及git常用的命令。
+categories: git
+permalink: 201411-git-ubuntu.html
+author: admin
+---
 
 #####0x01 git
 

@@ -1,11 +1,16 @@
-Title: 一些软件源的收集
-Date: 2016-03-12 13:13
-Modified: 2016-03-12 20:42
-Category: 【自由软件】
-Tags: 软件源,Linux,Docker
-Slug: 201603-some-sources
-Author: admin
-summary: 在国内，使用一些常见的软件源会大幅度提升速度，提升工作上的效率，本文总结了一些常用的软件源。
+---
+title: 一些软件源的收集
+date: 2016-03-12 13:13
+updated: 2016-03-12 20:42
+tags: 
+  - 软件源
+  - Linux
+  - Docker
+excerpt: 在国内，使用一些常见的软件源会大幅度提升速度，提升工作上的效率，本文总结了一些常用的软件源。
+categories: 自由软件
+permalink: 201603-some-sources.html
+author: admin
+---
 
 #####0x01 前言
 

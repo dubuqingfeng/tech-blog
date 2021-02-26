@@ -1,11 +1,15 @@
-Title: chromebook 的 ubuntu 安装和软件配置
-Date: 2014-10-19 12:41
-Modified: 2014-10-19 12:42
-Category: 【chromebook】
-Tags: chromebook,ubuntu
-Slug: 201410-chromebook-install-ubuntu
-Author: admin
-summary: 在入手了 chromebook 以后，原生的 ChromeOS 满足不了平时的需要，所以需要安装一些其它的系统，在贴吧等的指引下，安装配置好了ubuntu，记录一下安装的过程和软件。
+---
+title: chromebook 的 ubuntu 安装和软件配置
+date: 2014-10-19 12:41
+updated: 2014-10-19 12:42
+tags: 
+  - chromebook
+  - ubuntu
+excerpt: 在入手了 chromebook 以后，原生的 ChromeOS 满足不了平时的需要，所以需要安装一些其它的系统，在贴吧等的指引下，安装配置好了ubuntu，记录一下安装的过程和软件。
+categories: chromebook
+permalink: 201410-chromebook-install-ubuntu.html
+author: admin
+---
 
 #####0x01 安装系统
 需进入开发者模式，在关机状态下，按住Esc+F3（刷新）+电源键，启动Chromebook，看到ChromeOS系统损坏的界面以后（顺带一提，按方向键可以切换成不同的语 音；需要重装ChromeOS的话就在这个界面里插入ChromeOS恢复U盘，google下载）按Ctrl+D，系统提示是否确认要进入开发者模式，回车确认。然后等待系统重启，第一次重启会显示修复系统，耐心等待就可以了，从此系统就进入开发者模式。注意一旦开启开发者模式，开机界面都会显示一个警告界面。要么等待 30秒后系统自动启动，要么按Ctrl+D跳过等待时间。切记不可以按空格键，否则ChromeOS就自动关闭开发者模式了！

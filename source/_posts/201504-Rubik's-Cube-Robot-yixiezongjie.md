@@ -1,11 +1,15 @@
-Title: 基于 Arduino 的解魔方机器人一些总结
-Date: 2015-04-30 16:22
-Modified: 2015-07-28 21:41
-Category: 【电子设计】
-Tags: 电子设计,解魔方机器人
-Slug: 201504-Rubik's-Cube-Robot-yixiezongjie
-Author: admin
-summary: 在解魔方机器人制作之后的一些总结性的文字，利于以后回忆，并且有所回顾和思考。以及其在博创杯上的展示，升级等。
+---
+title: 基于 Arduino 的解魔方机器人一些总结
+date: 2015-04-30 16:22
+updated: 2015-07-28 21:41
+tags: 
+  - 电子设计
+  - 解魔方机器人
+excerpt: 在解魔方机器人制作之后的一些总结性的文字，利于以后回忆，并且有所回顾和思考。以及其在博创杯上的展示，升级等。
+categories: 电子设计
+permalink: 201504-Rubik's-Cube-Robot-yixiezongjie.html
+author: admin
+---
 
 #####0x01 期间的一些问题
 

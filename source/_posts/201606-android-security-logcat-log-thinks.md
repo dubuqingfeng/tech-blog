@@ -1,11 +1,16 @@
-Title: LogCat 及 Log 的一些思考 
-Date: 2016-06-21 17:36 
-Modified: 2016-06-23 18:27 
-Category: 【Android安全】 
-Tags: Android安全,Log,LogCat 
-Slug: 201606-android-security-logcat-log-thinks
-Author: admin 
-summary: Android 系统是如何实现 Log 机制的，以及有关 Log 的一些问题，smali 注入，so 打 log，屏蔽 log 输出，查看内核日志等。
+---
+title: LogCat 及 Log 的一些思考
+date: 2016-06-21 17:36 
+updated: 2016-06-23 18:27
+tags: 
+  - Android安全
+  - Log
+  - LogCat
+excerpt: Android 系统是如何实现 Log 机制的，以及有关 Log 的一些问题，smali 注入，so 打 log，屏蔽 log 输出，查看内核日志等。
+categories: Android安全
+permalink: 201606-android-security-logcat-log-thinks.html
+author: admin
+---
 
 #####0x00  TOC
 >原理

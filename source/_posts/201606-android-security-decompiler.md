@@ -1,13 +1,18 @@
-Title: Android Decompiler / 初探反编译
-Date: 2016-06-25 17:24 
-Modified: 2016-06-27 22:31 
-Category: 【Android安全】 
-Tags: Android安全,Decompiler,反编译
-Slug: 201606-android-security-decompiler 
-Author: admin
-summary: 本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。
+---
+title: Android Decompiler / 初探反编译
+date: 2016-06-25 17:24 
+updated: 2016-06-27 22:31
+tags: 
+  - Android安全
+  - 反编译
+  - Decompiler
+excerpt: 本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。
+categories: Android安全
+permalink: 201606-android-security-decompiler.html
+author: admin
+---
 
-#####0x00  TOC
+##### 0x00  TOC
 
 > 原理
 

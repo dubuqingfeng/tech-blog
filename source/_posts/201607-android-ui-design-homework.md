@@ -1,11 +1,16 @@
-Title: Android UI 期末作业分析（附代码）
-Date: 2016-07-01 13:27 
-Modified: 2016-07-03 22:31 
-Category: 【Android】 
-Tags: Android,Android UI,导航栏 
-Slug: 201607-android-ui-design-homework 
-Author: admin 
-summary: 以一次作业为例，分析Android上常见的UI风格的实现，并整理一些链接及官方实现。
+---
+title: Android UI 期末作业分析（附代码）
+date: 2016-07-01 13:27 
+updated: 2016-07-03 22:31 
+tags: 
+  - Android
+  - Android UI
+  - 导航栏
+excerpt: 以一次作业为例，分析Android上常见的UI风格的实现，并整理一些链接及官方实现。
+categories: Android安全
+permalink: 201607-android-ui-design-homework.html
+author: admin
+---
 
 #####0x00	TOC
 

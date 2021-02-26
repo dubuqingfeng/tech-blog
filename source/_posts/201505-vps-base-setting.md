@@ -1,11 +1,15 @@
-Title: Linux VPS的一些配置
-Date: 2015-05-16 12:53
-Modified: 2015-05-16 12:53
-Category: 【Linux】
-Tags: linux,vps
-Slug: 201505-vps-base-setting
-Author: admin
-summary: 对于Linux的VPS的一些基础设置，例如更换端口，加强登录验证，日志的记录，shadowsocks的安装，shadowsocks的优化等。
+---
+title: Linux VPS的一些配置
+date: 2015-05-16 12:53
+updated: 2015-05-16 12:53
+tags: 
+  - linux
+  - vps
+excerpt: 对于Linux的VPS的一些基础设置，例如更换端口，加强登录验证，日志的记录，shadowsocks的安装，shadowsocks的优化等。
+categories: linux
+permalink: 201505-vps-base-setting.html
+author: admin
+---
 
 #####0x01 更改默认ssh登录端口
 一般ssh是开放的，容易受到攻击或者爆破等行为。

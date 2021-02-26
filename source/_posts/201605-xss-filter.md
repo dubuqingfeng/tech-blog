@@ -1,11 +1,15 @@
-Title: XSS Filter
-Date: 2016-05-23 23:22
-Modified: 2016-05-24 22:34
-Category: 【Web安全】
-Tags: Web安全,xss
-Slug: 201605-xss-filter
-Author: admin
-summary: XSS 漏洞的Filter设计，并对一些语言，PHP、Python、Java进行了实践。
+---
+title: XSS Filter
+date: 2016-05-23 23:22
+updated: 2016-05-24 22:34
+tags: 
+  - Web安全
+  - xss
+excerpt: XSS 漏洞的Filter设计，并对一些语言，PHP、Python、Java进行了实践。
+categories: Web安全
+permalink: 201605-xss-filter.html
+author: admin
+---
 
 #####0x01  前言及TOC
 最近在看 XSS 的相关内容，也有很多需要注意的东西。在平时的开发及设计当中，不可避免的会遇到XSS，于是就有了设计一些filter的想法，以前也在phithon的github上看到过Python的[XSS filter](https://github.com/phith0n/python-xss-filter)，毕竟自己动手实现一个对于理解XSS，以及过滤的相关事情是很有帮助的。因此设计一些简单的filter，以备自己使用，并且这些filter是不安全的，不要放在生产环境，毕竟没有经过一些专业的检测，以及自己的JavaScript和XSS水平有待提高。以及以后可能还会写一些如何attack 这个filter的文章。

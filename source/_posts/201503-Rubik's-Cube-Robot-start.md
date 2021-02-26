@@ -1,11 +1,16 @@
-Title: 基于 Arduino 的解魔方机器人初步设计
-Date: 2015-03-08 16:22
-Modified: 2015-03-08 20:12
-Category: 【电子设计】
-Tags: 电子设计,解魔方机器人
-Slug: 201503-Rubik's-Cube-Robot-start
-Author: admin
-summary: 本文主要写了一种解魔方机器人的初步设计，基于Android和博创Arm控制板，可以扩展到树莓派等，或者直接通过舵机控制板，后期会陆续开源，从材料结构，到算法控制等的一些简单设计。
+---
+title: 基于 Arduino 的解魔方机器人初步设计
+date: 2015-03-08 20:12
+updated: 2015-03-08 20:12
+tags: 
+  - 电子设计
+  - 解魔方机器人
+excerpt: 本文主要写了一种解魔方机器人的初步设计，基于Android和博创Arm控制板，可以扩展到树莓派等，或者直接通过舵机控制板，后期会陆续开源，从材料结构，到算法控制等的一些简单设计。
+categories: 电子设计
+permalink: 201503-Rubik's-Cube-Robot-start.html
+author: admin
+---
+
 
 #####0x01 材料
 + Android手机(摄像头正常)

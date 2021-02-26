@@ -1,11 +1,15 @@
-Title: 基于 Arduino 的解魔方机器人详细思考
-Date: 2015-03-20 12:50
-Modified: 2015-03-20 20:12
-Category: 【电子设计】
-Tags: 电子设计,解魔方机器人
-Slug: 201503-Rubik's-Cube-Robot-Xiangxisikao
-Author: admin
-summary: 本文在上一篇解魔方机器人初步设计的基础上进行的详细设计，基于Android和控制板，后期可以扩展到树莓派等，后期会陆续开源，从材料结构，到算法控制等的一些简单设计。
+---
+title: 基于 Arduino 的解魔方机器人详细思考
+date: 2015-03-20 12:50
+updated: 2015-03-20 12:50
+tags: 
+  - 电子设计
+  - 解魔方机器人
+excerpt: 本文在上一篇解魔方机器人初步设计的基础上进行的详细设计，基于Android和控制板，后期可以扩展到树莓派等，后期会陆续开源，从材料结构，到算法控制等的一些简单设计。
+categories: 电子设计
+permalink: 201503-Rubik's-Cube-Robot-Xiangxisikao.html
+author: admin
+---
 
 #####0x01 显示屏大显部分
 常见的魔方比赛可以

@@ -1,11 +1,15 @@
-Title: 基于 Arduino 的解魔方机器人组装调试
-Date: 2015-03-24 14:23
-Modified: 2015-03-24 22:12
-Category: 【电子设计】
-Tags: 电子设计,解魔方机器人
-Slug: 201503-Rubik's-Cube-Robot-Zhuzhuangtiaoshi
-Author: admin
-summary: 本文在机械与电路部分的初步设计之下，进行一些主控板与硬件器件的辨析、连接与调试。
+---
+title: 基于 Arduino 的解魔方机器人组装调试
+date: 2015-03-24 14:23
+updated: 2015-03-24 22:12
+tags: 
+  - 电子设计
+  - 解魔方机器人
+excerpt: 本文在机械与电路部分的初步设计之下，进行一些主控板与硬件器件的辨析、连接与调试。
+categories: 电子设计
+permalink: 201503-Rubik's-Cube-Robot-Zhuzhuangtiaoshi.html
+author: admin
+---
 
 #####0x01 LM3S615
 此板是属于TI公司LM3S系列，是ARM Cortex-M3内核，相关手册以及电路图、说明书也在[](http://download)有下载，主要使用20针JTAG接口与J-LINK仿真器进行连接调试，主要有关系的是LM3S615的串口通信，PWM模块和GPIO接口。
