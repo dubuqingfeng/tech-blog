@@ -11,14 +11,14 @@ permalink: 201506-android-Preference-fragment.html
 author: admin
 ---
 
-#####0x01 前言
+# 0x01 前言
 
 在设置界面的开发时，以前往往通过自己写界面，在没有合适美工时，比较费时费力，尤其是以前需要兼容Android2.3的时候。当3.0以后出现了PreferenceFragment，可以快速地完成一个类似于系统设置的偏好设定界面。
 
 在android3.0以后，官方推荐使用PreferenceFragment去替代PreferenceActivity。
 以及一些配置。
 
-#####0x02 浅析
+# 0x02 浅析
 
 PreferenceFragment是继承于Fragment，实现了PreferenceManager.OnPreferenceTreeClickListener这些接口。
 
@@ -46,7 +46,7 @@ public interface OnPreferenceTreeClickListener {
 }
 ```
 
-#####0x03 完成步骤
+# 0x03 完成步骤
 
 通过新建项目的方式：
 
@@ -142,14 +142,14 @@ entries和entryValues从哪来？/res/values/array.xml或者/res/values/strings.
 ```
 preference-headers类
 
-#####0x04 Preference类
+# 0x04 Preference类
 前几天在SIMS(学生信息管理系统)项目中，涉及到了Preference这个类，当时可以通过输入输出流进行与文件的交互。
 
 在Java里可以利用这个类进行一些配置信息的保存等。
 
 详情可参考[PropertiesUtils](https://github.com/DigDream/SIMS/blob/master/src/com/student/sb/utils/PropertiesUtils.java)的实现。
 
-#####0x05 思考
+# 0x05 思考
 
 其PreferenceFragment文件源码地址在：[GoogleSource](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/preference/PreferenceFragment.java)，其中利用了ListView进行界面绘制。另外grepcode.com这个网站是个不错的查看android源代码(AOSP)的网站。以及还有一些[示例代码](http://www.programcreek.com/java-api-examples/index.php?api=android.preference.PreferenceFragment)。
 
@@ -157,7 +157,7 @@ preference-headers类
 
 [](源码分析)
 
-#####0x06 参考链接
+# 0x06 参考链接
 
 [settings](http://developer.android.com/guide/topics/ui/settings.html)
 

@@ -11,12 +11,12 @@ permalink: 201504-Rubik's-Cube-Robot-houxukuozhan.html
 author: admin
 ---
 
-#####0x01 Android软件上的扩展
+# 0x01 Android软件上的扩展
 
 Android上的控制软件，
 
-#####0x02 Arduino主控的扩展
-#####0x03 在图像处理方面的扩展
-#####0x04 蓝牙WIFI方面的扩展
-#####0x05 主控板的扩展
-#####0x06 树莓派的扩展
+# 0x02 Arduino主控的扩展
+# 0x03 在图像处理方面的扩展
+# 0x04 蓝牙WIFI方面的扩展
+# 0x05 主控板的扩展
+# 0x06 树莓派的扩展

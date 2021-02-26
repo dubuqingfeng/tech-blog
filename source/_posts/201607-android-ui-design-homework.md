@@ -12,7 +12,7 @@ permalink: 201607-android-ui-design-homework.html
 author: admin
 ---
 
-#####0x00	TOC
+# 0x00	TOC
 
 >作业题目分析
 
@@ -34,7 +34,7 @@ author: admin
 
 >后记
 
-#####0x01  作业题目分析
+# 0x01  作业题目分析
 
 最近 android UI 布置了期末作业，以前总是不写作业，总觉得那些作业重复性太强，浪费太多时间。还不如将写作业的时间用在思考上面。不过自己还是喜欢那种课程设计的作业，课程设计的作业较普通作业来说，可以学到不少知识，可以整理出很多东西。几个人做出一个课设总觉得是一件很酷的事情，不过哪有几个人，很多时间都是一个人在做。不仅是对以往知识的掌握的练习，还可以自由地进行一定的扩展。
 
@@ -179,11 +179,11 @@ private Class[] fragments = {HomeFragment.class, HomeFragment.class,
 
 <img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-06.png" class="responsive-img">
 
-#####0x03  轮播图片实现
+# 0x03  轮播图片实现
 
 这个轮播图片，这个好多大牛都自己实现过一次，如果时间不够，或者水平没达到一定程度，也可以借鉴一些开源组件，例如[Kanner](https://github.com/iKrelve/Kanner)，[PictureCarousel](https://github.com/bendeng/PictureCarousel)等。当然Trinea大牛也出过一篇名为[Android自动滚动 轮播循环的ViewPager](http://www.trinea.cn/android/auto-scroll-view-pager/)的分析。 限于篇幅，不能详细地分析了。
 
-#####0x04  卡片式风格
+# 0x04  卡片式风格
 
 事实上，截图里的风格趋近于磁贴，真正的卡片式设计[谷歌也早已在应用](https://www.zhihu.com/question/21473866)。但是这种交互性没有那么强，只有几个块状元素，应该触感上不如磁贴的。
 
@@ -340,7 +340,7 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 });
 ```
 
-#####0x07  侧滑界面实现
+# 0x07  侧滑界面实现
 
 关于QQ的侧滑界面，网上也有[解析](http://www.kancloud.cn/digest/fastdev4android/109672)，使用了ViewDragHelper来进行手势的处理。
 
@@ -383,7 +383,7 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 其中menu也声明了是在`activity_main_drawer.xml`文件里，可以修改其，以进行一些侧滑菜单项的配置。
 
-#####0x08  顶部弹出菜单实现
+# 0x08  顶部弹出菜单实现
 
 我们在侧滑界面实现的那个Demo或者`Base Activity`里面，其实已经实现了点击弹出菜单的样式，即官方实现，当然这个各自有各自的实现，我们当然也可以使用PopupMenu、PopupWindow之类的去实现这些效果，此次简要写一下官方实现Menu。
 
@@ -528,7 +528,7 @@ class MyPagerAdapter extends PagerAdapter {
 
 具体可以参考简书上的这篇[Android开发之TabLayout实现顶部菜单的文章](http://www.jianshu.com/p/7ee916e5fae7)。如果要实现内容不是View，而是一个Fragment的话，只需要重写一下`Adapter`，将对应的Fragment返回即可，具体可以查看`FragmentStatePagerAdapter`的源码，以及以前写过类似的[东西](https://github.com/DigDream/shopnc-app/blob/master/Src/app/src/main/java/com/daxueoo/shopnc/ui/fragment/HomeFragment.java)。
 
-#####0x0A  后记
+# 0x0A  后记
 
 斜阳无限，无奈只一息间灿烂。
 

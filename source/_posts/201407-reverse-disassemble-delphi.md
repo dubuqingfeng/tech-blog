@@ -11,11 +11,11 @@ permalink: 201407-reverse-disassemble-delphi.html
 author: admin
 ---
 
-##### 0x01 前言
+# 0x01 前言
 
 普通的一些加密壳能够较为容易的被脱掉，而一些稍微难一点壳，例如VMProtect等，刚入门的新手就不是那么好脱了，而这些壳也提供了一些sdk帮助我们加密需要加密的函数，使保护壳能够识别源码中需要加密保护的代码段。下面以我的一个delphi程序为例，介绍VMProtect sdk和EncryptPE的一些加密方法，其他vc，或者易语言写的程序也可以使用其进行加密。
 
-##### 0x02 VMProtect保护
+# 0x02 VMProtect保护
 
 VMProtect sdk保护方式可以有两种，map法和标记法，在官方文档中，有下述方法。
 
@@ -134,7 +134,7 @@ Call VarPtr(“VMProtect begin”)
 Call VarPtr(“VMProtect end”)
 ```
 
-##### 0x03 VMProtect 和 ASProtect 的混合加密
+# 0x03 VMProtect 和 ASProtect 的混合加密
 
 Asprotect 也有相关的sdk，也提供了注册机制，主要 delphi 通过标记语句，{$I filename}，实现文件的引入，它主要有多态变形标记，crc 检查标记，外壳完整性检查。不同的标记需要引入不同的文件，例如在多态变形标记中，示例为：
 
@@ -160,7 +160,7 @@ Delphiexample:
 
 而先用ASProtect，后用VMProtect时，程序正常运行，当然因为加壳的原因，在在线杀毒引擎中有23%的杀软(9/38)报告发现病毒。
 
-##### 0x04 MAP文件的结构
+# 0x04 MAP文件的结构
 
 一开始是
 

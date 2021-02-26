@@ -11,7 +11,7 @@ permalink: 201606-capture-android-mitm.html
 author: admin
 ---
 
-#####0x01	前言：
+# 0x01	前言：
 作为开发者或者安全研究员，开发或分析一些与网络相关的程序时，必然要涉及到 HTTP 协议，而了解信息的传输，是非常必要的。所以我们需要抓取并控制到网路流量，并且需要对中间人攻击有一定的认识。
 
 TOC：
@@ -29,7 +29,7 @@ TOC：
 
 >参考链接
 
-#####0x02    捕捉网络流量
+# 0x02    捕捉网络流量
 
 需要一些nc、wireshark、tcpdump for Android软件。
 
@@ -94,7 +94,7 @@ netcat 127.0.0.1 12345 | wireshark -k -S -i -
 <img src="https://oijlbmkg8.qnssl.com/blog201606-capture-android-mitm-01.gif" class="responsive-img">
 
 
-#####0x03    Charles抓包工具的使用
+# 0x03    Charles抓包工具的使用
 
 安装并配置Charles。
 
@@ -144,7 +144,7 @@ ettercap -i eth0 -T -M arp:remote /10.0.0.1/ // 欺骗局域网内所有主机
 ```
 
 
-#####0x05    MITM工具
+# 0x05    MITM工具
 
 常见的有dSploit，zANTI。
 
@@ -152,7 +152,7 @@ android设备使用dSploit进行中间人攻击：
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-capture-android-mitm-06.png" class="responsive-img">
 
-#####0x06    中间人的利用
+# 0x06    中间人的利用
 
 当成为中间人了以后，就可以进行各种利用了，比如查看流量，网页劫持，提取密码，会话劫持等。
 
@@ -160,7 +160,7 @@ android设备使用dSploit进行中间人攻击：
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-capture-android-mitm-07.png" class="responsive-img">
 
-#####0x07    参考链接
+# 0x07    参考链接
 
 热爱互联网，对操作系统和网络安全有狂热的追求，专业不限；熟悉漏洞挖掘、网络安全攻防技术，了解常见黑客攻击手法；掌握基本开发能力，熟练使用C/C++语言；对数据库、操作系统、网络原理有较好掌握；具有软件逆向，网络安全攻防或安全系统开发经验者优先。
 

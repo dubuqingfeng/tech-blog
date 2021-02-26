@@ -11,7 +11,7 @@ permalink: 201606-write-drozer-module.html
 author: admin
 ---
 
-#####0x01    前言及TOC
+# 0x01    前言及TOC
 drozer 是一个 android 渗透与测试比较出名的一个框架，其源码托管在 [GitHub](https://github.com/mwrlabs/drozer)。我们可以利用其进行一些自动化测试工作，以及测试一些拒绝式服务，写一些 exploit 等。
 
 TOC：
@@ -29,7 +29,7 @@ TOC：
 
 >后记
 
-#####0x02    安装与配置 drozer
+# 0x02    安装与配置 drozer
 
 mac10.11 系统：
 安装配置好 python，然后使用下面的命令，或者 pip 安装也可以。
@@ -91,7 +91,7 @@ run app.package.list
 run app.package.info -a application_name
 ```
 
-#####0x03    安装模块
+# 0x03    安装模块
 
 打开**drozer console**，执行以下命令：
 
@@ -103,7 +103,7 @@ run [module-name]
 
 其中为**pach-to-your-module-dir**存放编写的模块的目录的路径。
 
-#####0x04    动手写一些模块
+# 0x04    动手写一些模块
 
 [官方文档](https://github.com/mwrlabs/drozer/wiki/Writing-a-Module#metadata)里说明了需要书写的一些属性：
 
@@ -235,7 +235,7 @@ except Exception:
 
 ```
 
-#####0x05    drozer module
+# 0x05    drozer module
 
 QA:
 1.drozer 模块存放在哪，从哪寻找那些模块？
@@ -275,7 +275,7 @@ def __locate(self):
     return modules
 ```
 
-#####0x06    自动化测试脚本思考
+# 0x06    自动化测试脚本思考
 
 主要就是爬虫下载apk，然后自动安装apk，然后drozer去分析利用。
 
@@ -285,11 +285,11 @@ def __locate(self):
 
 所以是爬虫下载apk，然后分开不同的目录，再利用脚本adb安装到设备上，并将包名输出到一个文件里，然后模块里在读取文件，然后进行检查package，或者拒绝服务的检测。
 
-#####0x07    后记
+# 0x07    后记
 drozer 是利用 protobuf 协议作为通信的，如果这个协议出现了问题，又会怎么样呢？这是以后思考的方向吧。
 
 当然 drozer 的可利用范围是比较广的，可以测试 SQL 注入，以及各种组件的漏洞，或者配合 nc 进行 shell 的获取。以后再整理一些利用思路，或者一些 exploit 的编写。
 
-#####0x08    参考链接
+# 0x08    参考链接
 
 [自己动手开发Drozer插件之AutoAttack](http://appscan.360.cn/blog/?p=45)

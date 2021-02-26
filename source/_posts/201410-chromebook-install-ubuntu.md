@@ -11,13 +11,13 @@ permalink: 201410-chromebook-install-ubuntu.html
 author: admin
 ---
 
-#####0x01 安装系统
+# 0x01 安装系统
 需进入开发者模式，在关机状态下，按住Esc+F3（刷新）+电源键，启动Chromebook，看到ChromeOS系统损坏的界面以后（顺带一提，按方向键可以切换成不同的语 音；需要重装ChromeOS的话就在这个界面里插入ChromeOS恢复U盘，google下载）按Ctrl+D，系统提示是否确认要进入开发者模式，回车确认。然后等待系统重启，第一次重启会显示修复系统，耐心等待就可以了，从此系统就进入开发者模式。注意一旦开启开发者模式，开机界面都会显示一个警告界面。要么等待 30秒后系统自动启动，要么按Ctrl+D跳过等待时间。切记不可以按空格键，否则ChromeOS就自动关闭开发者模式了！
 
 <br>
 进入开发者模式的ChromeOS，不要登录google帐号。保持网络连通（我使用了手机usb分享网络，一开始还没研究翻墙），在登录界面按Ctrl+Alt+F2，切换到命令行界面。用chronos帐号登录，不需要密码。紧接着输入curl -L -O http://goo.gl/9sgchs下载脚本，然后sudo bash 9sgchs 执行脚本，保持网络畅通。
 
-#####0x02 安装软件
+# 0x02 安装软件
 
 	sudo apt-get update
 
@@ -90,12 +90,12 @@ cp -r ~/Download/jdk1.8.0_45 /usr/lib/jdk/
 
 	wget http://codown.youdao.com/cidian/linux/youdao-dict_1.0.2~ubuntu_amd64.deb
 
-#####0x03 一些备份内容
+# 0x03 一些备份内容
 
 + pelican的博客
 + android项目文件
 
-#####0x04 链接
+# 0x04 链接
 + [Gist](https://gist.github.com/dubuqingfeng/c0c42a4805bee049321c#file-ubuntu-install-software-sh-L48)
 + [GitHub](https://github.com/dubuqingfeng/Chromebook-For-Chinese)
 + [Ubuntu-dotfiles](https://github.com/dubuqingfeng/ubuntu-dotfiles)

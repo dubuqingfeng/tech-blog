@@ -11,11 +11,11 @@ permalink: 201411-git-ubuntu.html
 author: admin
 ---
 
-#####0x01 git
+# 0x01 git
 
 GIT最初是由Linus Benedict Torvalds为了更有效地管理Linux内核开发而创立的分布式版本控制软件，与常用的版本控制工具如CVS、Subversion不同，它不必服务器端软件支持，速度和效率也有着相当程度的提高。
 
-#####0x02 准备安装
+# 0x02 准备安装
 
 从这里 http://git-scm.com/download 下载GIT或者使用wget命令获取
 
@@ -66,7 +66,7 @@ name = dubuqingfeng
 email = 1135326346@qq.com
 ```
 
-#####0x03 配置
+# 0x03 配置
 
 	$ ssh-keygen -t rsa -C “1135326346@qq.com”//填写email地址，然后一直“回车”ok
 
@@ -83,7 +83,7 @@ $ ssh -T git@github.com
 
 如果提示：Hi dubuqingfeng You’ve successfully authenticated, but GitHub does not provide shell access. 说明连接成功了
 
-#####0x04 git基础使用
+# 0x04 git基础使用
 
 1.创建新仓库
 创建新文件夹，打开，然后执行
@@ -130,6 +130,6 @@ $ ssh -T git@github.com
 要更新你的本地仓库至最新改动，执行：
 
 	git pull
-#####0x05 gitg
+# 0x05 gitg
 
 在ubuntu里使用过gitg的客户端，基本不大的项目够用。

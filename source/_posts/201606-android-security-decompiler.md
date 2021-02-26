@@ -12,7 +12,7 @@ permalink: 201606-android-security-decompiler.html
 author: admin
 ---
 
-##### 0x00  TOC
+#  0x00  TOC
 
 > 原理
 
@@ -30,7 +30,7 @@ author: admin
 
 > 参考链接
 
-#####0x01  原理
+# 0x01  原理
 
 首先在逆向领域，有一个是需要区别的。就是反汇编和反编译。
 
@@ -104,7 +104,7 @@ Smali/Baksmali is an assembler/disassembler for the dex format used by dalvik,
   Icelandic equivalents of "assembler" and "disassembler" respectively.
 ```
 
-#####0x03  仅混淆
+# 0x03  仅混淆
 
 通常Android混淆方法，有ProGuard、DexGuard和APKfuscator等。
 
@@ -189,7 +189,7 @@ dex2jar作者在[Android混淆技巧与反混淆](http://secwiki.neu.edu.cn/wiki
 
 这样反混淆了以后，降低了代码阅读的难度，增加了应用被破解的风险。
 
-#####0x04  仅加密
+# 0x04  仅加密
 
 加密方式有很多种，本文不能面面俱到，只能找出一些典型的。比如有流程混排加密、代码内部字符串加密，对so源码、so函数名称以及接口调用进行加密隐藏，对classes.dex中的所有函数功能代码进行提取，然后加密单独存放等。
 
@@ -218,7 +218,7 @@ public int getSignature(String packageName) {
 
 可以在APP每次访问服务器的时候，携带上当前APP的签名，服务端做个签名验证，如果不对，直接不通过，返回客户端信息，然后客户端进行一定的处理。当然这样的话破解者也可以通过抓包的方式，抓取到签名验证的包，然后每次通信时修改对应的包即可。
 
-#####0x05  仅加壳
+# 0x05  仅加壳
 
 so加壳，upx是最为so加壳的首选，以前在PC端也做过[upx的脱壳](http://qingfeng520.blog.51cto.com/7098444/1256106)。
 
@@ -311,13 +311,13 @@ extern "C" {void _init(void){}}    \\c
 
 然后脱壳自然-d参数即可，需要判断标志是否为UPX!，以及处理变形等问题，脱完壳就可以使用IDA进行android的so分析了。
 
-#####0x06  自动化实现
+# 0x06  自动化实现
 
 如何实现一些自动化脚本，进行反汇编的还原工作。
 
 当然网上已经有人实现过相关内容，比如Mac下的[AndroidDecompiler](https://github.com/dirkvranckaert/AndroidDecompiler)，或者是[easy-android-decompiler](https://github.com/luckyandyzhang/easy-android-decompiler)。
 
-#####0x07  一些软件
+# 0x07  一些软件
 
 >Baksmali 和 Dedexer
 
@@ -367,7 +367,7 @@ app调试器：
 
 [逆向工程集](https://github.com/Juude/droidReverse)
 
-#####0x08  参考链接
+# 0x08  参考链接
 
 当然实际情况是混淆，加密，加壳综合起来的，实际情况要具体分析。
 

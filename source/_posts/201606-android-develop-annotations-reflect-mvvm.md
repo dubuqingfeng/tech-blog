@@ -13,7 +13,7 @@ permalink: 201606-android-develop-annotations-reflect-mvvm.html
 author: admin
 ---
 
-#####0x00	TOC：
+# 0x00	TOC：
 >常规
 
 >注解
@@ -28,7 +28,7 @@ author: admin
 
 >源码实现
 
-#####0x01  常规
+# 0x01  常规
 这里findViewById作用以及用法就不再叙述了，接触过Android开发的都明白其怎么用，这次主要分析如何提高其性能，并且使用**TraceView**分析，如何改善或者节省代码，使开发人员变得更懒。
 
 环境：
@@ -138,7 +138,7 @@ button = (Button) findViewById(R.id.btn_test);
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-01.png" class="responsive-img">
 
-#####0x02  注解
+# 0x02  注解
 
 如何使用注解这种的避免传统的`findViewById`呢。
 
@@ -173,7 +173,7 @@ ButterKnife.bind(this);
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-02.png" class="responsive-img">
 
-#####0x03  泛型
+# 0x03  泛型
 
 ```java
 private <T extends View> T $(int resId) {
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-04.png" class="responsive-img">
 
-#####0x05  在线生成
+# 0x05  在线生成
 
 Convert your Android XML layouts into a set of declarations and binds to save you all that manual typing. Enter a prefix for your fields, choose the scope paste in your XML and hit generate. Select "verbose" to find out why any fields are skipped.
 
@@ -237,7 +237,7 @@ Convert your Android XML layouts into a set of declarations and binds to save yo
 
 <img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-05.png" class="responsive-img">
 
-#####0x06  DataBinding
+# 0x06  DataBinding
 
 DataBinding是谷歌官方推出的一款数据绑定框架。
 
@@ -269,7 +269,7 @@ android {
 
 其中可以实现单向数据绑定。
 
-#####0x07  源码实现
+# 0x07  源码实现
 
 想了那么多避免传统的findViewById的方法，有的性能差不多，有的性能比较低，但是官方基础实现永远是性能最快的。
 

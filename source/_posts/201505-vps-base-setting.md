@@ -11,7 +11,7 @@ permalink: 201505-vps-base-setting.html
 author: admin
 ---
 
-#####0x01 更改默认ssh登录端口
+# 0x01 更改默认ssh登录端口
 一般ssh是开放的，容易受到攻击或者爆破等行为。
 
 ```vim
@@ -26,7 +26,7 @@ author: admin
 
 	service sshd restart
 
-#####0x02 使用密钥登录而不是密码
+# 0x02 使用密钥登录而不是密码
 
 在一个自用的vps上，避免使用密码登录，妥善保管好密钥，可以提高一定的安全性。
 
@@ -51,7 +51,7 @@ author: admin
 	vi /etc/ssh/sshd_config 文件
 
 	找到PasswordAuthentication后面的yes改成no。
-#####0x03 查看登录日志
+# 0x03 查看登录日志
 
 首先进入日志目录：
 	
@@ -69,7 +69,7 @@ author: admin
 	
 	lastb
 
-#####0x04 配置shadowsocks
+# 0x04 配置shadowsocks
 
 安装setuptools
 	
@@ -172,7 +172,7 @@ Centos7版本：
 	
 	PS：现在提升ss速度，可以通过开启BBR的方法。（20161101）
 
-#####0x05 Koding环境配置pelican简记
+# 0x05 Koding环境配置pelican简记
 
 Koding是一个在线IDE环境，适合进行Web方面的开发，支持Java、PHP、NodeJS、Perl、Python、Ruby、C、C++和Go等编程语言，貌似不太好绑定自定义域名。
 
@@ -182,7 +182,7 @@ pip install pelican
 sudo apt-get install python-virtualenv
 ```
 
-#####0x06 后记
+# 0x06 后记
 
 需要进一步学习SSH协议，Linux服务器管理，密码学，sock5代理，iptables。
 

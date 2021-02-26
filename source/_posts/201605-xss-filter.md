@@ -11,7 +11,7 @@ permalink: 201605-xss-filter.html
 author: admin
 ---
 
-#####0x01  前言及TOC
+# 0x01  前言及TOC
 最近在看 XSS 的相关内容，也有很多需要注意的东西。在平时的开发及设计当中，不可避免的会遇到XSS，于是就有了设计一些filter的想法，以前也在phithon的github上看到过Python的[XSS filter](https://github.com/phith0n/python-xss-filter)，毕竟自己动手实现一个对于理解XSS，以及过滤的相关事情是很有帮助的。因此设计一些简单的filter，以备自己使用，并且这些filter是不安全的，不要放在生产环境，毕竟没有经过一些专业的检测，以及自己的JavaScript和XSS水平有待提高。以及以后可能还会写一些如何attack 这个filter的文章。
 
 TOC：
@@ -30,7 +30,7 @@ TOC：
 
 >相关paper
 
-#####0x02  基础的filter
+# 0x02  基础的filter
 
 首先需要过滤<>"()/script等字符(">_<script123")，在PHP里可以使用preg_replace函数去过滤，并且通过htmlspecialchars函数转换为HTML实体编码。即：
 
@@ -147,7 +147,7 @@ tornado都会自动执行xhtml_escape方法，将<, >, ", ', 和&进行了转义
 
 但是也需要针对特殊情况去过滤，关注一些输出在JavaScript代码的地方，进行特定形式的转义、正则匹配。
 
-#####0x04  PHP filter设计
+# 0x04  PHP filter设计
 
 《XSS跨站脚本与防御》的第242页给出了一个通用的过滤XSS的函数，贴到了[gist](https://gist.github.com/dubuqingfeng/019414ea26ddba6257c089c26ed3852c)。
 
@@ -180,7 +180,7 @@ function transform_HTML($string, $length = null) {
 
 以及可以使用一些类似于HTML Purifier，或者一些富文本过滤类。
 
-#####0x05  Java filter设计
+# 0x05  Java filter设计
 
 Java Web方面，通过过滤一些Request请求，在GET或者POST请求层面进行过滤。
 
@@ -206,7 +206,7 @@ com.sxau.filter.XssFilter
 
 也可以使用一些类似于[Lucy-XSS : XssFilter, XssPreventer](https://github.com/naver/lucy-xss-filter)的模块去处理。
 
-#####0x06  系统层面filter
+# 0x06  系统层面filter
 
 这里的系统层面，侧重于WAF方面。
 
@@ -227,7 +227,7 @@ java\.lang
 
 当然有些WAF还是联网获取这些规则的，它们采用的一些正则表达式匹配的方法，比较容易被绕过的，也有人提出了[主动防御](http://www.edu.cn/web_9955/20100609/t20100609_484473.shtml)的概念。
 
-#####0x07  后记
+# 0x07  后记
 
 当学习地渐渐深入的时候，会越来越发现其的神奇，不断的过滤，不断的绕过，以及还有二哥和长短短的一些猥琐的思路，并且也有很多人教导学习XSS时候，一定要注意JavaScript基础，毕竟好的一名跨站师，xsser都是JavaScript很厉害。
 
@@ -237,7 +237,7 @@ java\.lang
 
 自动化挖掘XSS漏洞，自动化防御，CVE里的XSS，以及总结一些好的XSS思路，新型XSS，自动化利用框架，浏览器Filter策略，防御XSS，机器学习等。。。
 
-#####0x08  相关paper及资料
+# 0x08  相关paper及资料
 
 > 给开发者的终极XSS备忘录
 

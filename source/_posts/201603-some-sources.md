@@ -12,11 +12,11 @@ permalink: 201603-some-sources.html
 author: admin
 ---
 
-#####0x01 前言
+# 0x01 前言
 
 在国内的大环境下，一些软件使用官方源会有很大的延迟，而使用国内搭建的同步官方源的话，速度会提升很多的，因此，本文总结一些常用的软件源，并不定期更新。
 
-#####0x02 Linux
+# 0x02 Linux
 + [清华源](https://mirrors.tuna.tsinghua.edu.cn/)
 + [中科大](https://mirrors.ustc.edu.cn/)
 + [阿里云](http://mirrors.aliyun.com/)
@@ -47,19 +47,19 @@ author: admin
 
 以ubuntu为例，需要编辑**/etc/apt/sources.list**文件
 
-#####0x03 Docker
+# 0x03 Docker
 + [清华源](https://mirrors.tuna.tsinghua.edu.cn/help/docker/)
 + [Daocloud获取Docker](https://get.daocloud.io/)
 + [灵雀云](http://www.alauda.cn/)
 + [时速云](https://www.tenxcloud.com/)
 
 
-#####0x04 Android
+# 0x04 Android
 
 + [AndroidDevTools](http://www.androiddevtools.cn/)
 + [中科院](http://mirrors.opencas.cn/)
 
-#####0x05 Ruby (gem,bundle)
+# 0x05 Ruby (gem,bundle)
 
 + [淘宝](https://ruby.taobao.org/)
 + [山东理工大学](http://ruby.sdutlinux.org/)
@@ -78,7 +78,7 @@ $ gem install rails
 $ bundle config mirror.https://rubygems.org https://ruby.taobao.org
 ```
 
-#####0x06 composer
+# 0x06 composer
 
 + [Packagist](http://pkg.phpcomposer.com/)
 
@@ -142,7 +142,7 @@ $ cnpm install [name]
 $ cnpm sync connect
 ```
 
-#####0x08 Python pip
+# 0x08 Python pip
 
 + [中科大](https://pypi.mirrors.ustc.edu.cn/)
 + [豆瓣](http://pypi.douban.com/)
@@ -152,7 +152,7 @@ sudo pip install -i http://pypi.douban.com/simple/ xxx
 ```
 
 
-#####0x09 maven
+# 0x09 maven
 + [阿里](http://maven.aliyun.com/nexus/content/groups/public)
 
 ```

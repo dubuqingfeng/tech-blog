@@ -12,7 +12,7 @@ permalink: 201606-android-security-logcat-log-thinks.html
 author: admin
 ---
 
-#####0x00  TOC
+# 0x00  TOC
 >原理
 
 >smali注入
@@ -79,7 +79,7 @@ LogCat是如何获取Log的？通过[`logcat.cpp`](https://github.com/cgjones/an
 $ logcat-color -e | egrep '(Tag1|Tag2)'
 ```
 
-#####0x02  smali注入
+# 0x02  smali注入
 
 通过以下命令，进行apktool反编译
 
@@ -107,7 +107,7 @@ jarsigner -verbose -keystore android.keystore -signedjar android_signed.apk app.
 
 运行即可看到Log信息。
 
-#####0x03  手机查看log并导出
+# 0x03  手机查看log并导出
 
 如何在手机上读取其他应用的log并可以导出呢，谷歌在4.1以后禁止了相关权限，改为了`signature|system|development`权限。就算有android.PREMISSION.READ_LOGS，也读取不到其他应用的log了。只能root以后查看。
 
@@ -116,7 +116,7 @@ jarsigner -verbose -keystore android.keystore -signedjar android_signed.apk app.
 并且在google play商店上也有几款手机上查看log的软件，需要root权限。比如[CatLog - Logcat Reader!](https://play.google.com/store/apps/details?id=com.nolanlawson.logcat&hl=en)，[aLogcat (free) - logcat
 ](https://play.google.com/store/apps/details?id=org.jtb.alogcat&hl=en)等。aLogCat也开源了，地址在[GitHub上](https://github.com/nolanlawson/Catlog)。
 
-#####0x04  so打log
+# 0x04  so打log
 
 如何在so文件，即jni开发中里打log呢
 
@@ -148,7 +148,7 @@ ndk {
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)  
 ```
 
-#####0x05  发布(release)版屏蔽Log输出
+# 0x05  发布(release)版屏蔽Log输出
 一种方法是通过添加一个Log辅助类，配置级别，或者通过变量控制显示。
 
 ```java
@@ -237,7 +237,7 @@ release {
 即结果。然后打包签名输出就不会有log日志了。
 
 
-#####0x06  查看内核日志
+# 0x06  查看内核日志
 
 ```
 ./adb shell
@@ -248,7 +248,7 @@ cat /proc/kmsg
 
 dmesg是内核中的一个命令，可以查看内核日志，当然，也可以用`cat/proc/kmsg`。两者不同的是，dmesg只读取缓冲区中的内核日志，而`cat /proc/kmsg`则可以原始的、完整的日志文件。
 
-#####0x07  参考链接
+# 0x07  参考链接
 
 >[Google API](https://developer.android.com/reference/android/util/Log.html)
 

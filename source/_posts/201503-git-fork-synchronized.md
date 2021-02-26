@@ -12,7 +12,7 @@ author: admin
 ---
 
 
-#####0x01 与原项目进行同步
+# 0x01 与原项目进行同步
 
 >在github里，每当fork一个项目后，如何保持与原作者的同步？一般可以以下几步。
 
@@ -37,7 +37,7 @@ author: admin
     git remote -v
     git branch -a
 
-#####0x02 git协同命令
+# 0x02 git协同命令
 
 如果是个人产品，不是那种产品需要上线的服务。
 
@@ -65,7 +65,7 @@ Git创建Develop分支的命令：
 
 修补bug（fixbug）分支
 
-#####0x03 Pull Request
+# 0x03 Pull Request
 
 >当某个人fork项目后，并推送改动后如何处理？
 
