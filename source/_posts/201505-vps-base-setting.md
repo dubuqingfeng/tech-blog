@@ -9,6 +9,7 @@ excerpt: 对于Linux的VPS的一些基础设置，例如更换端口，加强登
 categories: linux
 permalink: 201505-vps-base-setting.html
 author: admin
+toc: true
 ---
 
 # 0x01 更改默认ssh登录端口

@@ -9,6 +9,7 @@ excerpt: 在认识启动函数的过程中，得知main函数之前系统要做�
 categories: 反汇编
 permalink: 201407-reverse-disassemble-c-main.html
 author: admin
+toc: true
 ---
 
 # 0x01  工具准备

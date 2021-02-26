@@ -9,6 +9,7 @@ excerpt: 本文从 DevOps 的角度去浅显地探讨软件安全开发周期，
 categories: DevOps
 permalink: 201610-devops-best-practices-sdl.html
 author: admin
+toc: true
 ---
 
 # 目录：

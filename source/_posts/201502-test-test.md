@@ -9,6 +9,7 @@ excerpt: 这是搭建pelican后的第一篇文章，还将会修改主题，建�
 categories: test
 permalink: 2015-create-blog.html
 author: admin
+toc: true
 ---
 
 #  0x01 搭建环境

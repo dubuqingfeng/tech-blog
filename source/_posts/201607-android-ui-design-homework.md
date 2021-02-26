@@ -10,6 +10,7 @@ excerpt: 以一次作业为例，分析Android上常见的UI风格的实现，�
 categories: Android安全
 permalink: 201607-android-ui-design-homework.html
 author: admin
+toc: true
 ---
 
 # 0x00	TOC

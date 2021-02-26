@@ -10,6 +10,7 @@ excerpt: Android 系统是如何实现 Log 机制的，以及有关 Log 的一�
 categories: Android安全
 permalink: 201606-android-security-logcat-log-thinks.html
 author: admin
+toc: true
 ---
 
 # 0x00  TOC

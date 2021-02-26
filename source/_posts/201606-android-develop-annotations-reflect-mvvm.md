@@ -11,6 +11,7 @@ excerpt: 从传统的findViewById出发，经历不同的方式，注解，泛�
 categories: Android
 permalink: 201606-android-develop-annotations-reflect-mvvm.html
 author: admin
+toc: true
 ---
 
 # 0x00	TOC：

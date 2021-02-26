@@ -9,6 +9,7 @@ excerpt: 下面以我的一个 delphi 程序为例，介绍 VMProtect sdk 和 En
 categories: 逆向加密
 permalink: 201407-reverse-disassemble-delphi.html
 author: admin
+toc: true
 ---
 
 # 0x01 前言

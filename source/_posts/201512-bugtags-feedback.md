@@ -9,6 +9,7 @@ excerpt: 写在Bugtags上线Crash发生趋势之际，以及英语四级前夜�
 categories: Bugtags
 permalink: 201512-bugtags-feedback.html
 author: admin
+toc: true
 ---
 
 # 0x01	前言、

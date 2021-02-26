@@ -9,6 +9,7 @@ excerpt: 在android中，利用PreferenceFragment快速完成设置界面以及�
 categories: Android
 permalink: 201506-android-Preference-fragment.html
 author: admin
+toc: true
 ---
 
 # 0x01 前言

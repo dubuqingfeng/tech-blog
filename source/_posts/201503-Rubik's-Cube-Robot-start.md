@@ -9,6 +9,7 @@ excerpt: 本文主要写了一种解魔方机器人的初步设计，基于Andro
 categories: 电子设计
 permalink: 201503-Rubik's-Cube-Robot-start.html
 author: admin
+toc: true
 ---
 
 

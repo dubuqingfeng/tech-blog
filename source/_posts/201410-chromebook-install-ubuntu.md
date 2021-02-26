@@ -9,6 +9,7 @@ excerpt: 在入手了 chromebook 以后，原生的 ChromeOS 满足不了平时�
 categories: chromebook
 permalink: 201410-chromebook-install-ubuntu.html
 author: admin
+toc: true
 ---
 
 # 0x01 安装系统

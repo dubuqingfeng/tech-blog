@@ -9,6 +9,7 @@ excerpt: 在解魔方机器人制作之后的一些总结性的文字，利于�
 categories: 电子设计
 permalink: 201504-Rubik's-Cube-Robot-yixiezongjie.html
 author: admin
+toc: true
 ---
 
 # 0x01 期间的一些问题

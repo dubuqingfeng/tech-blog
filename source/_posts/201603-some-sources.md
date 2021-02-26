@@ -10,6 +10,7 @@ excerpt: 在国内，使用一些常见的软件源会大幅度提升速度，�
 categories: 自由软件
 permalink: 201603-some-sources.html
 author: admin
+toc: true
 ---
 
 # 0x01 前言

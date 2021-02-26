@@ -10,6 +10,7 @@ excerpt: 本文对 Android 反编译领域进行了简要的分析，如何进�
 categories: Android安全
 permalink: 201606-android-security-decompiler.html
 author: admin
+toc: true
 ---
 
 #  0x00  TOC

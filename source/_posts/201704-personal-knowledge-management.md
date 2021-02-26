@@ -9,6 +9,7 @@ excerpt: 当学习久了以后，就会意识到效率的重要性。计算机�
 categories: 自我管理
 permalink: 201704-personal-knowledge-management.html
 author: admin
+toc: true
 ---
 
 # TOC

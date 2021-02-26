@@ -9,6 +9,7 @@ excerpt: 记录一下在ubuntu下的git入门及其配置，以及git常用的�
 categories: git
 permalink: 201411-git-ubuntu.html
 author: admin
+toc: true
 ---
 
 # 0x01 git

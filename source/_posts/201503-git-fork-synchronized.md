@@ -9,6 +9,7 @@ excerpt: 每fork一个项目后，当进行改动，然后push上去以后，如
 categories: git
 permalink: 201503-git-fork-synchronized.html
 author: admin
+toc: true
 ---
 
 
