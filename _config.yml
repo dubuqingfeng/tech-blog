@@ -61,4 +61,6 @@ exclude: null
 ignore: null
 theme: icarus
 deploy:
-  type: ''
+  type: git
+  repo: git@github.com:dubuqingfeng/tech-blog.git
+  branch: gh-pages
