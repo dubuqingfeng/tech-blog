@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>独步清风&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="独步清风&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="独步清风&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="dubuqingfeng"><meta property="og:url" content="https://dbqf.xyz/"><meta property="og:site_name" content="独步清风&#039;s Blog"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://dbqf.xyz/img/og_image.png"><meta property="article:author" content="dubuqingfeng"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://dbqf.xyz"},"headline":"独步清风's Blog","image":["https://dbqf.xyz/img/og_image.png"],"author":{"@type":"Person","name":"dubuqingfeng"},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">独步清风&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2018-06-26T04:13:12.000Z" title="2018-6-26 12:13:12">2018-06-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2018-06-26T04:13:12.000Z" title="2018-6-26 12:13:12">2018-06-26</time></span><span class="level-item">19 minutes read (About 2857 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2018/06/26/201610-devops-best-practices-sdl/"> </a></h1><div class="content"><p>Title:DevOps 最佳实践之推进软件安全开发周期 SDL 建设<br>Date: 2016-10-24 15:42<br>Modified: 2016-11-10 1:53<br>Category: 【DevOps】<br>Tags: SDL,DevOps<br>Slug: 201610-devops-best-practices-sdl<br>Author: admin<br>summary: 本文从 DevOps 的角度去浅显地探讨软件安全开发周期，而建设软件安全开发周期任重而道远，而面对大多数公司的安全性问题，能否使用软件安全开发周期解决。并且 DevOps 作为周期很重要的一环，如何推动公司的安全体系建设。当然 SDL 并不是银弹，只是能大量减少软件安全缺陷。</p>
+<p>#####目录：</p>
+<ul>
+<li>前言</li>
+<li>DevOps</li>
+<li>如今的安全形势</li>
+<li>软件安全开发周期及应用 SDL 解决安全问题</li>
+<li>使用 DevOps 推进 SDL</li>
+<li>在华为软件云的实践</li>
+<li>后记</li>
+</ul>
+<h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>本文从 DevOps 的角度去浅显地探讨软件安全开发周期，而建设软件安全开发周期任重而道远，而面对大多数公司的安全性问题，能否使用软件安全开发周期解决。并且 DevOps 作为周期很重要的一环，如何推动公司的安全体系建设。当然 SDL 并不是银弹，只是能大量减少软件安全缺陷。</p>
+<h5 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h5><p>现如今，DevOps 的概念已经对于互联网公司来说不是陌生了，随着诸多大公司的推进，越来越多的公司用上了 DevOps，有些公司从中体验到了快捷之处，也有公司感觉到了复杂性。不像其他方面，DevOps 至今都没有一个完整的标准或者是实现方案，大多数都是一些大公司的实践。</p>
+<p>而中小企业或者创业公司，需不需要 DevOps 呢？大多数创业公司还是需要一种敏捷性，追求快速迭代开发，希望早点上线，早点运营，抢占用户。在公司里规划 DevOps 团队，自然就显得比较重要，可以提高产品的交付能力与效率。近几年，Docker，Kubernetes 的出现，极大地增加了我们对于 DevOps 的渴望。</p>
+<p>通过 Docker 进行持续集成，极大地提升了我们持续交付的能力。并且它可以达到开发与生产环境一致的效果，从原来的一天部署一次，通过它的可持续可以一天构建几十次之多。使得 Dev 和 Ops 的关系从原来的相互独立变成了相互融合，实际上还可以引入 QA 等人员。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-1.png" class="responsive-img">
+
+<p>当熟悉了 DevOps 的最佳实践了以后，运用一些自动化工具，改变传统的开发部署流程，提高部署速度，构建可扩展的技术架构，<br>提升软件交付的效率。从下图也可以看出，企业对于 DevOps 的重视程度在不断增加。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-2.png" class="responsive-img">
+
+<h5 id="如今的安全形势"><a href="#如今的安全形势" class="headerlink" title="如今的安全形势"></a>如今的安全形势</h5><p>近几年，政府与各大公司在不断地推进网络安全的发展，但是还是每天有很多应急，数据泄露事件的发生。有数据表明，大多数网络安全问题是由 SQL 注入、网站后门、代码注入、未授权访问、弱口令等造成的。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-3.png" class="responsive-img">
+
+<p>像这些问题是如何造成的呢，有很大一部分是由于开发上的不完善，导致有些地方可以利用，比如 SQL 注入，XSS 之类的，在代码上没有做好过滤，或者是进行参数化查询，而这些问题在开发的过程中就有能力去解决，可以使用一些代码审计或者代码检查服务。而中小公司，创业公司并没有配备专业的安全团队，而这些安全问题往往是致命的，可以被拿到权限，或者关键数据库等，而安全对于用户的影响也是很重要的。</p>
+<p>如何去解决这些问题呢？有一种方法是采用一些安全测试，使用专门的人员进行黑盒测试，而这种的并不能找到所有的问题，还是会有一些问题遗漏，并且这种成本较高，普通小公司初期往往不能接受，如果领导层面不重视安全的话，必然会出现很多问题。而中小公司的安全问题如何去解决，大多数普通开发者对于安全审计的知识了解尚浅，所以需要一个自动化，在开发过程中进行代码检查的工具，使开发者了解到其危害，并定期做一些科普性的交流。这样可以减少一定的风险，而成本不会投入太多。</p>
+<h5 id="软件安全开发周期以及应用-SDL-解决安全问题"><a href="#软件安全开发周期以及应用-SDL-解决安全问题" class="headerlink" title="软件安全开发周期以及应用 SDL 解决安全问题"></a>软件安全开发周期以及应用 SDL 解决安全问题</h5><p>中小公司、创业公司，在业务的不断成长的情况下，总是会遇到很多安全性，以及开发上的部署，测试等流程上的问题。如何去面对这种问题呢？</p>
+<p>微软在最初的时候，也有开发周期上的不完善，导致出现了很多安全问题，比如缺少安全设计，缺少安全编程规范，开发者安全意识不足等，并且当时 IIS 引发了不少安全 bug，导致当时安全不容乐观。而微软在推动软件安全开发生命周期（SDL）以后，如同“微软：引领软件安全趋势”给我们带来了这样的印象。实际说明了 SDL 带来的效果。</p>
+<p>软件安全开发周期包括什么呢？包括安全编码培训、安全威胁建模、安全设计、安全应急响应、安全配置、安全测试、安全部署等。它只是一个体系，具体实施的时候，还得看实际情况。</p>
+<p>安全编码培训就是提供不同的开发语言的安全规范，与安全团队或者安全负责人进行课程的建立，增强开发人员的安全意识。开发人员需要遵循安全编码规范，定期做一些代码检查之类的。在有些产品中，在设计阶段就应该引入安全部分。创建一些恶意的输入进行安全测试，并且把引用到的第三方开源控件也应该记录下来，及时升级新版本。并且对安全事件进行应急响应，规范修补漏洞的流程。</p>
+<p>而现如今的敏捷开发方式，是争取早日上线，抢占用户，从漏洞报告的情况可得知，有很多不应该出现的安全缺陷。而安全开发周期这种体系，也许是因为领导的不重视，或许是没人进行推进，导致各种安全事件的发生。所以需要在项目管理的时候，引入安全开发周期的概念，建立相关模板，定期进行代码审计，规范环境配置，做好安全应急响应。</p>
+<h5 id="DevOps-推进-SDL"><a href="#DevOps-推进-SDL" class="headerlink" title="DevOps 推进 SDL"></a>DevOps 推进 SDL</h5><p>其实在开发与测试过程中，很多安全开发周期需要规范的地方，在 DevOps 部分可以体现。所以作为 DevOps。有必要协助进行 SDL 的建设。</p>
+<p>在随着持续集成与持续交付建立好的情况下，发布会越来越频繁，而其中需要安全团队或者安全负责人进行定期的代码审查，而 DevOps 配置好一些自动化审计工具以后，会降低一些工作量，并且 DevOps 进行规范化配置，定期和运维去检查一些弱口令或者未授权访问的情况。提醒开发禁止使用一些危险可能造成漏洞的 API 或者函数。并且通过使用 Docker 统一环境，进行隔离，降低了由环境带来的安全风险。</p>
+<p>在做安全应急响应的时候，有一部分事件是与部署或者环境有关的，比如 Docker 或者 etcd 未授权访问、弱口令、一些常见组件的安全漏洞（struts、脏牛、ImageMagick 等），这一部分由于是线上环境，所以需要 DevOps 去关注相关的动态，定期做一些培训或者检查，在有相关组件的安全漏洞时及时构建镜像进行升级，避免受到攻击。</p>
+<p>对 CVE 进行关注，列出应用依赖的组件，避免通过组件拿到权限。并且与运维配置好相关防火墙，WAF，监控服务。做好身份校验。</p>
+<p>由于业务的不同，每个公司的情况都不可能一致，所以需要 DevOps 和安全部门或者负责安全的人员进行共同做对应的配置及优化。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-4.png" class="responsive-img">
+
+<h5 id="在华为软件云的实践"><a href="#在华为软件云的实践" class="headerlink" title="在华为软件云的实践"></a>在华为软件云的实践</h5><p>在小型的创业公司里，以上最好是可以弄在项目管理里，而常见的项目管理软件或者网站，并没有相关功能，而华为企业云在这块开发了软件开发云模块，里面提供了各种完善的管理机制，而对于软件园区、孵化器、互联网企业、软件外包行业、高校、培训机构这些应用场景来说，完整的软件管理周期就显得有核心竞争力。并且它有代码检查的功能，还可以自定义检查规则，其中提供了以下的服务</p>
+<ul>
+<li>缺陷快速定位和修复</li>
+<li>主流编程语言</li>
+<li>多种检查规则套餐</li>
+<li>自定义检查规则</li>
+<li>缺陷批量处理</li>
+<li>多维度报表</li>
+</ul>
+<p>这是其他同类网站所没有的。并且相比较而言，以前得使用很多服务，比如 bugly，Jenkins，bugclose 或者 bugtags，trello 或者 tower，git 等。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-5.png" class="responsive-img">
+
+<h5 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h5><p>实际上，软件安全开发周期还有很多内容，限于篇幅，不能一一列举探讨，而其他的比如安全培训，需求分析，测试，系统设计，发布，应急响应时候的安全规范，这个每个公司情况不尽相同，不能一概而论，并且 SDL 也不是银弹，不能解决全部的问题，但是对整体的安全性会有很大的提升，所以也希望大部分公司可以建设起自己的安全体系，建设属于自己的 SDL，解决大部分的安全问题，一起对安全作出自己的贡献。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2018-06-26T04:12:17.000Z" title="2018-6-26 12:12:17">2018-06-26</time></span><span class="level-item">Updated&nbsp;<time dateTime="2018-06-26T04:12:17.000Z" title="2018-6-26 12:12:17">2018-06-26</time></span><span class="level-item">10 minutes read (About 1506 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2018/06/26/201407-reverse-disassemble-c-main/"> </a></h1><div class="content"><p>Title:c 程序的启动过程的反汇编分析<br>Date: 2014-07-24 15:42<br>Modified: 2014-07-24 15:42<br>Category: 【反汇编】<br>Tags: C,反汇编<br>Slug: 201407-reverse-disassemble-c-main<br>Author: admin<br>summary: 在认识启动函数的过程中，得知main函数之前系统要做一些准备工作，再加上上学期学的C语言程序入口函数不是main函数，而是_start函数。因此想对启动过程进行一定分析。</p>
+<p>#####0x01  工具准备</p>
+<p>1.最简c代码一只</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.ollydbg</p>
+<p>3.VC++6.0</p>
+<p>4.GCC（mingw）</p>
+<p>#####0x02  代码分析</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在gcc下，添加-nostdlib编译选项，即链接器不链接标准库，会提示以下错误信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D:\Backup\我的文档\src&gt;gcc main.c -nostdlib-o main.exe</span><br><span class="line">C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\ccmSU3wr.o:main.c:(.text+0x9): undefined reference to &#96;__main’</span><br><span class="line">collect2.exe: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
+
+<p>关于-nostdlib编译选项，只有命令行指定的项才传递给链接器。标准启动文件和库都不会传递给链接器。该选项隐式打开选项-nostartfiles 和-nodefaultlibs。该选项也可以写作–no-standard-libraries。</p>
+<p>在gcc执行汇编之后，在链接部分，当只打开选项-nostartfiles时，结果正常，未出现错误信息。而在-nodefaultlibs选项中，提示很多错误信息。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-1.png" class="responsive-img">
+
+<p>说明main函数，依赖了一些系统标准库文件，在链接的时候，需要到了一些函数，例如pre_cpp_init、check_managed_app、pre_c_init、_tmainCRTStartup、_InterlockedCompareExchangePointer、duplicate_ppstrings、WinMainCRTStartup、mainCRTStartup、_mingw_prepare_except_fr_msvcr80_and_higher….</p>
+<p>汇编里面的_main就是C语言里面的main，是因为汇编器和C编译器对符号的命名差一个下划线。</p>
+<p>链接器会在系统标准库文件，类似于/lib/crt2.o的文件中，寻找_start符号，然后在_start中执行创建堆对象，栈，打开系统预先提供的设备，将argv,argc参数传入main函数，然后调用main函数。</p>
+<p>#####0x03  vc main函数反汇编分析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1:    int main()</span><br><span class="line">2:    &#123;</span><br><span class="line">00401010   push        ebp   &#x2F;&#x2F;在堆栈上保存EBP</span><br><span class="line">00401011   mov         ebp,esp &#x2F;&#x2F;将堆栈当前位置给EBP，以在堆栈结构中存储值时的参考点</span><br><span class="line">00401013   sub         esp,40h &#x2F;&#x2F;分配空间</span><br><span class="line">00401016   push        ebx  &#x2F;&#x2F;保存数据段值</span><br><span class="line">00401017   push        esi &#x2F;&#x2F;源地址指针</span><br><span class="line">00401018   push        edi &#x2F;&#x2F;目的地址指针</span><br><span class="line">00401019   lea         edi,[ebp-40h] &#x2F;&#x2F;装入有效地址，用来得到局部变量和函数参数的指针。这里[ebp-40h]就是基地址再向下偏移40h，就是前面说的为本地变量留出的空间的起始地址；将这个值装载入edi寄存器，从而得到局部变量的地址</span><br><span class="line">0040101C   mov         ecx,10h &#x2F;&#x2F;在ecx寄存器存储10h</span><br><span class="line">00401021   mov         eax,0CCCCCCCCh</span><br><span class="line">00401026   rep stos    dword ptr [edi] &#x2F;&#x2F;初始化局部变量空间,ds:[edi]</span><br><span class="line">3:        return 0;</span><br><span class="line">00401028   xor         eax,eax</span><br><span class="line">4:    &#125;</span><br><span class="line">0040102A   pop         edi &#x2F;&#x2F;恢复所有寄存器的值</span><br><span class="line">0040102B   pop         esi</span><br><span class="line">0040102C   pop         ebx</span><br><span class="line">0040102D   mov         esp,ebp &#x2F;&#x2F;恢复堆栈</span><br><span class="line">0040102F   pop         ebp</span><br><span class="line">00401030   ret &#x2F;&#x2F;返回到源EIP地址</span><br></pre></td></tr></table></figure>
+
+<p>Vc查看调用栈，可以看到在main函数之前，系统还启动了mainCRTStartup函数，这个函数是控制台环境下多字节编码的启动函数。在kernel32.dll中地址7c816fd7处调用了mainCRTStartup函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">main() line 2</span><br><span class="line">mainCRTStartup() line 206 + 25 bytes</span><br><span class="line">KERNEL32! 7c816fd7()</span><br></pre></td></tr></table></figure>
+
+<p>#####0x04 ollydbg反汇编分析</p>
+<p>Od载入，如图所示。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-2.png" class="responsive-img">
+
+<p>堆栈窗口如图所示。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-3.png" class="responsive-img">
+
+<p>通过堆栈，可以看到kelnel32调用了入口函数(mainCRTStartup)，对于od来说，main函数并不是Entry point，而是mainCRTStartup函数。</p>
+<p>一直单步，单步到00401146处，od分析为调用GetVersion函数，获取当前运行平台的版本号，因为是控制台程序，所以获取版本号为ms-dos的版本信息。</p>
+<p>继续单步，单步到0040119E处，单步进入，可以看到有HeapCreate申请堆空间函数，大小由传递的参数决定，并且该call里有HeapDestroy销毁堆函数。因此0040119E为初始化堆空间，如图所示。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-4.png" class="responsive-img">
+
+<p>在004011C0处，od分析为GetCommandLineA函数，获取命令行参数信息的首地址。</p>
+<p>进入下面的那个call后，可以看到GetEnvironmentStringsW和GetEnvironmentStrings函数，获取环境变量的首地址，如图所示。以Unicode编码形式返回到寄存器和堆栈中，最后采用WideCharToMultiByte函数将Unicode字符串到一个多字节字符串</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-5.png" class="responsive-img">
+
+<p>并且后续有参数分析的一些函数，环境变量信息分析，从而得到main函数所需的参数，然后在00402D4B位置，将参数传到main函数中，从而执行main函数中的内容。</p>
+<p>#####0x05 后记</p>
+<p>最近在阅读《c++反汇编与逆向分析技术揭秘》，在阅读到第三章认识启动函数，找到用户入口时，得知main函数之前系统要做一些准备工作，再加上上学期学的C语言程序入口函数不是main函数，而是_start函数，这不禁引发了一些思考，到底编译器在编译和系统执行程序的时候发生了什么，因此想以实例进行一定的分析。在思考的过程中，有些涉及到了编译器的知识，包括它如何工作的，汇编之后又是如何链接的，这一部分内容不太熟悉，这一方面得掌握编译原理的知识，还得学习编译器的相关内容。那些东西还没学，因此不免有一些缺憾。了解反汇编的一些内容，可以更深层次的理解相对底层的一些东西，包括栈，堆和寄存器的数据交换。另外并未使用到神器IDA，利用IDA会更好地静态分析一些函数。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2017-02-13T09:25:08.000Z" title="2017-2-13 17:25:08">2017-02-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2017-02-13T09:25:08.000Z" title="2017-2-13 17:25:08">2017-02-13</time></span><span class="level-item">7 minutes read (About 978 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/02/13/201603-some-sources/"> </a></h1><div class="content"><p>Title: 一些软件源的收集<br>Date: 2016-03-12 13:13<br>Modified: 2016-03-12 20:42<br>Category: 【自由软件】<br>Tags: 软件源,Linux,Docker<br>Slug: 201603-some-sources<br>Author: admin<br>summary: 在国内，使用一些常见的软件源会大幅度提升速度，提升工作上的效率，本文总结了一些常用的软件源。</p>
+<p>#####0x01 前言</p>
+<p>在国内的大环境下，一些软件使用官方源会有很大的延迟，而使用国内搭建的同步官方源的话，速度会提升很多的，因此，本文总结一些常用的软件源，并不定期更新。</p>
+<p>#####0x02 Linux</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">清华源</a></li>
+<li><a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">中科大</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/">阿里云</a></li>
+<li><a target="_blank" rel="noopener" href="http://free.nchc.org.tw/pmwiki/index.php?n=FSLab.MirrorLists">自由軟體實驗室</a></li>
+<li><a target="_blank" rel="noopener" href="https://mirrors.cqu.edu.cn/">重庆大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.zju.edu.cn/">浙大镜像</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.opencas.cn/">中科院</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.163.com/">网易</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.sohu.com/">搜狐</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirror.bit.edu.cn/web/">北京理工大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirror.bjtu.edu.cn/cn/">北京交通大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.xmu.edu.cn/">厦门大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.hust.edu.cn/">华中科技大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.linuxstory.org/">Linuxstory</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.yun-idc.com/">首都在线</a></li>
+<li><a target="_blank" rel="noopener" href="http://ftp.sjtu.edu.cn/">上海交通大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirror.lzu.edu.cn/">兰州大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://run.hit.edu.cn/html/">哈尔滨工业大学</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.jlu.edu.cn/">吉林大学</a></li>
+<li><a target="_blank" rel="noopener" href="https://mirrors.duohuo.org/">南信大多火工作室</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.jstvu.edu.cn/">江苏开放大学</a></li>
+</ul>
+<br>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://wiki.ubuntu.org.cn/%E6%BA%90%E5%88%97%E8%A1%A8">Ubuntu官方</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.deepin.org/mirror.html">Deepin</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/">archlinux</a></li>
+</ul>
+<p>以ubuntu为例，需要编辑**/etc/apt/sources.list**文件</p>
+<p>#####0x03 Docker</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/docker/">清华源</a></li>
+<li><a target="_blank" rel="noopener" href="https://get.daocloud.io/">Daocloud获取Docker</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.alauda.cn/">灵雀云</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tenxcloud.com/">时速云</a></li>
+</ul>
+<p>#####0x04 Android</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.androiddevtools.cn/">AndroidDevTools</a></li>
+<li><a target="_blank" rel="noopener" href="http://mirrors.opencas.cn/">中科院</a></li>
+</ul>
+<p>#####0x05 Ruby (gem,bundle)</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ruby.taobao.org/">淘宝</a></li>
+<li><a target="_blank" rel="noopener" href="http://ruby.sdutlinux.org/">山东理工大学</a></li>
+</ul>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https:&#x2F;&#x2F;ruby.taobao.org&#x2F; --remove https:&#x2F;&#x2F;rubygems.org&#x2F;</span><br><span class="line">$ gem sources -l</span><br><span class="line">*** CURRENT SOURCES ***</span><br><span class="line">https:&#x2F;&#x2F;ruby.taobao.org</span><br><span class="line"># 请确保只有 ruby.taobao.org</span><br><span class="line">$ gem install rails</span><br><span class="line">*** bundle ***</span><br><span class="line">可以用 Bundler 的 Gem 源代码镜像命令:</span><br><span class="line">$ bundle config mirror.https:&#x2F;&#x2F;rubygems.org https:&#x2F;&#x2F;ruby.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>#####0x06 composer</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://pkg.phpcomposer.com/">Packagist</a></li>
+</ul>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">例1：修改 composer 的全局配置文件（推荐方式）</span><br><span class="line"></span><br><span class="line">打开命令行窗口（windows用户）或控制台（Linux、Mac 用户）并执行如下命令：</span><br><span class="line"></span><br><span class="line">composer config -g repo.packagist composer </span><br><span class="line">https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line"></span><br><span class="line">例2：修改当前项目的 composer.json 配置文件：</span><br><span class="line"></span><br><span class="line">打开命令行窗口（windows用户）或控制台（Linux、Mac 用户），进入你的项目的根目录</span><br><span class="line">（也就是 composer.json 文件所在目录），执行如下命令：</span><br><span class="line"></span><br><span class="line">composer config repo.packagist composer https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line">上述命令将会在当前项目中的 composer.json 文件的末尾自动添加镜像的配置信息</span><br><span class="line">（你也可以自己手工添加）：</span><br><span class="line"></span><br><span class="line">&quot;repositories&quot;: &#123;</span><br><span class="line">&quot;packagist&quot;: &#123;</span><br><span class="line">&quot;type&quot;: &quot;composer&quot;,</span><br><span class="line">&quot;url&quot;: &quot;https:&#x2F;&#x2F;packagist.phpcomposer.com&quot;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#####0x07 NodeJs npm</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://npm.taobao.org/">淘宝源</a></li>
+<li><a target="_blank" rel="noopener" href="https://cnpmjs.org/">cnpm</a></li>
+</ul>
+<p>配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">可以使用我们定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:</span><br><span class="line"></span><br><span class="line">$ npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">或者直接通过添加 npm 参数 alias 一个新命令:</span><br><span class="line"></span><br><span class="line">alias cnpm&#x3D;&quot;npm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org \</span><br><span class="line">--cache&#x3D;$HOME&#x2F;.npm&#x2F;.cache&#x2F;cnpm \</span><br><span class="line">--disturl&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist \</span><br><span class="line">--userconfig&#x3D;$HOME&#x2F;.cnpmrc&quot;</span><br><span class="line"></span><br><span class="line"># Or alias it in .bashrc or .zshrc</span><br><span class="line">$ echo &#39;\n#alias for cnpm\nalias cnpm&#x3D;&quot;npm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org \</span><br><span class="line">--cache&#x3D;$HOME&#x2F;.npm&#x2F;.cache&#x2F;cnpm \</span><br><span class="line">--disturl&#x3D;https:&#x2F;&#x2F;npm.taobao.org&#x2F;dist \</span><br><span class="line">--userconfig&#x3D;$HOME&#x2F;.cnpmrc&quot;&#39; &gt;&gt; ~&#x2F;.zshrc &amp;&amp; source ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+<p>使用方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装模块：</span><br><span class="line">$ cnpm install [name]</span><br><span class="line">同步模块：</span><br><span class="line">$ cnpm sync connect</span><br></pre></td></tr></table></figure>
+
+<p>#####0x08 Python pip</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://pypi.mirrors.ustc.edu.cn/">中科大</a></li>
+<li><a target="_blank" rel="noopener" href="http://pypi.douban.com/">豆瓣</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install -i http:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxx</span><br></pre></td></tr></table></figure>
+
+
+<p>#####0x09 maven</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://maven.aliyun.com/nexus/content/groups/public">阿里</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在maven的settings.xml 文件里配置mirrors的子节点，添加如下mirror</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">   &lt;id&gt;nexus-aliyun&lt;&#x2F;id&gt;</span><br><span class="line">   &lt;mirrorOf&gt;*&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">   &lt;name&gt;Nexus aliyun&lt;&#x2F;name&gt;</span><br><span class="line">   &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;mirror&gt; </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">本地配置文件：</span><br><span class="line">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;settings&gt;</span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line">&lt;mirror&gt;</span><br><span class="line">    &lt;id&gt;nexus-aliyun&lt;&#x2F;id&gt;</span><br><span class="line">    &lt;mirrorOf&gt;*&lt;&#x2F;mirrorOf&gt;</span><br><span class="line">    &lt;name&gt;Nexus aliyun&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&lt;&#x2F;url&gt;</span><br><span class="line">&lt;&#x2F;mirror&gt;</span><br><span class="line">&lt;&#x2F;mirrors&gt;</span><br><span class="line">&lt;&#x2F;settings&gt;</span><br></pre></td></tr></table></figure>
+
+
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2017-02-13T09:19:58.000Z" title="2017-2-13 17:19:58">2017-02-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2017-02-13T09:19:58.000Z" title="2017-2-13 17:19:58">2017-02-13</time></span><span class="level-item">7 minutes read (About 1061 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/02/13/201505-vps-base-setting/"> </a></h1><div class="content"><p>Title: Linux VPS的一些配置<br>Date: 2015-05-16 12:53<br>Modified: 2015-05-16 12:53<br>Category: 【Linux】<br>Tags: linux,vps<br>Slug: 201505-vps-base-setting<br>Author: admin<br>summary: 对于Linux的VPS的一些基础设置，例如更换端口，加强登录验证，日志的记录，shadowsocks的安装，shadowsocks的优化等。</p>
+<p>#####0x01 更改默认ssh登录端口<br>一般ssh是开放的，容易受到攻击或者爆破等行为。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#vi /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">#Port <span class="number">22</span>             //先把<span class="number">22</span>注释掉</span><br></pre></td></tr></table></figure>
+
+<pre><code>Port 2754            //添加一个新的端口
+</code></pre>
+<p>重启ssh服务</p>
+<pre><code>service sshd restart
+</code></pre>
+<p>#####0x02 使用密钥登录而不是密码</p>
+<p>在一个自用的vps上，避免使用密码登录，妥善保管好密钥，可以提高一定的安全性。</p>
+<p>一开始使用Xshell的密钥生成工具，在工具选项卡中，有新建用户密钥生成向导，选择RSA，密钥长度为2048位，下一步输入私钥密码，涉及到了非对称加密，详细原理正在读《深入浅出密码学》，一些RSA算法，在256位密钥以上进行蛮力攻击时耗费时间较长。生成了pub格式的公钥。</p>
+<p>将我们生成的pub公钥文件上传到/root/.ssh文件夹下面（如果没有我们需要创建），然后我们需要将id_rsa_2048.pub重命名为authorized_keys 并且用chmod 600 authorized_keys设置权限。</p>
+<pre><code>chmod 600 /root/.ssh/authorized_keys
+</code></pre>
+<p>找到/etc/ssh/sshd_config ，把RSAAuthentication和PubkeyAuthentication两行前面的#注释去掉。</p>
+<pre><code>vi /etc/ssh/sshd_config
+</code></pre>
+<p>重启sshd服务的另一种方法：</p>
+<pre><code>Debian/Ubuntu执行：/etc/init.d/ssh restart
+
+CentOS执行：/etc/init.d/sshd restart
+</code></pre>
+<p>禁止密码登录：</p>
+<pre><code>vi /etc/ssh/sshd_config 文件
+
+找到PasswordAuthentication后面的yes改成no。
+</code></pre>
+<p>#####0x03 查看登录日志</p>
+<p>首先进入日志目录：</p>
+<pre><code>cd /var/log
+</code></pre>
+<p>查看ssh用户的登录日志：</p>
+<pre><code>less secure
+</code></pre>
+<p>查看登录成功的ip信息：</p>
+<pre><code>last
+</code></pre>
+<p>查看登录失败的ip信息：</p>
+<pre><code>lastb
+</code></pre>
+<p>#####0x04 配置shadowsocks</p>
+<p>安装setuptools</p>
+<pre><code>yum install -y python-setuptools
+</code></pre>
+<p>安装完毕后，easy_install命令就可以使用了。</p>
+<p>安装pip，默认安装到/usr/bin目录下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure>
+
+<p>创建shadowsocks的配置文件：</p>
+<pre><code>vi /etc/shadowsocks.json
+</code></pre>
+<p>内容如下：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">        <span class="attr">&quot;server&quot;</span>:<span class="string">&quot;your_server_ip&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;server_port&quot;</span>:<span class="number">8989</span>,</span><br><span class="line">        <span class="attr">&quot;local_address&quot;</span>: <span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;local_port&quot;</span>:<span class="number">1080</span>,</span><br><span class="line">        <span class="attr">&quot;password&quot;</span>:<span class="string">&quot;yourpassword&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;timeout&quot;</span>:<span class="number">600</span>,</span><br><span class="line">        <span class="attr">&quot;method&quot;</span>:<span class="string">&quot;aes-256-cfb&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;fast_open&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">&quot;workers&quot;</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一些优化：</p>
+<p>安装 gevent可以提高 Shadowsocks的性能。CentOS下安装gevent依赖libevent和greenlet。</p>
+<p>安装libevent：</p>
+<pre><code>yum install -y libevent
+</code></pre>
+<p>安装greenlet：</p>
+<pre><code>pip install greenlet
+</code></pre>
+<p>安装gevent：</p>
+<pre><code>pip install gevent
+</code></pre>
+<p>运行shadowsocks服务端：</p>
+<pre><code>ssserver -c /etc/shadowsocks.json
+</code></pre>
+<p>如果想在后台一直运行Shadowsocks，启动命令如下：</p>
+<pre><code>nohup ssserver -c /etc/shadowsocks.json &gt; /dev/null 2&gt;&amp;1 &amp;
+</code></pre>
+<p>防火墙的设置</p>
+<p>编辑防火墙配置文件/etc/sysconfig/iptables，将服务器端口（server_port）放行。 新增一条防火墙规则：</p>
+<pre><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8989 -j ACCEPT
+</code></pre>
+<p>重启防火墙iptables：</p>
+<pre><code>service iptables restart
+</code></pre>
+<p>使用docker部署shadowsocks服务。</p>
+<p>1.安装并测试Docker，可以参考官方文档。或者是《Docker入门与实践》安装一节。</p>
+<p>2.拉取镜像</p>
+<pre><code>docker pull dubuqingfeng/shadowsocks:vps
+</code></pre>
+<p>3.运行容器</p>
+<pre><code>docker run -d -p 1984:1984 dubuqingfeng/shadowsocks:vps -p 1984 -k sspassword -m aes-256-cfb
+</code></pre>
+<p>1984即为服务器端口。</p>
+<p>sspassword为连接密码，自行更换。</p>
+<p>aes-256-cfb为加密方式。</p>
+<p>也可以使用-c /etc/shadowsocks.json参数。</p>
+<p>4.测试运行</p>
+<pre><code>docker ps -a
+</code></pre>
+<p>如果出现up即为安装成功。</p>
+<p>Centos7版本：</p>
+<pre><code>docker pull index.alauda.cn/dubuqingfeng/centos7-shadowsocks
+</code></pre>
+<p>运行容器</p>
+<pre><code>docker run -d -p 1984:1984 index.alauda.cn/dubuqingfeng/centos7-shadowsocks -p 1984 -k sspassword -m aes-256-cfb
+
+PS：现在提升ss速度，可以通过开启BBR的方法。（20161101）
+</code></pre>
+<p>#####0x05 Koding环境配置pelican简记</p>
+<p>Koding是一个在线IDE环境，适合进行Web方面的开发，支持Java、PHP、NodeJS、Perl、Python、Ruby、C、C++和Go等编程语言，貌似不太好绑定自定义域名。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-pip</span><br><span class="line">pip install pelican</span><br><span class="line">sudo apt-get install python-virtualenv</span><br></pre></td></tr></table></figure>
+
+<p>#####0x06 后记</p>
+<p>需要进一步学习SSH协议，Linux服务器管理，密码学，sock5代理，iptables。</p>
+<p>路漫漫，盖余之勤且艰若此。</p>
+<p>专注地做好每一件事。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2017-02-13T09:14:10.000Z" title="2017-2-13 17:14:10">2017-02-13</time></span><span class="level-item">Updated&nbsp;<time dateTime="2017-02-13T09:14:10.000Z" title="2017-2-13 17:14:10">2017-02-13</time></span><span class="level-item">7 minutes read (About 1071 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2017/02/13/201502-test-test/"> </a></h1><div class="content"><p>Title: Hello,World!<br>Date: 2015-02-10 12:11<br>Modified: 2015-02-10 12:11<br>Category: 【test】<br>Tags: github pages,pelican<br>Slug: 2015-create-blog<br>Author: admin<br>summary: 这是搭建pelican后的第一篇文章，还将会修改主题，建立一种编辑器环境。本文记述了如何搭建pelican的环境，写作环境，主题的编写，pelican插件配置，以及程序后续维护，域名、Rss等服务配置。</p>
+<p>#####0x01 搭建环境</p>
+<blockquote>
+<p>Linux(Ubuntu)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Virtualenv</span><br><span class="line"></span><br><span class="line">sudo pip install virtualenv</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>MAC</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install pelican markdown</span><br><span class="line"></span><br><span class="line">pelican-quickstart</span><br></pre></td></tr></table></figure>
+
+<p>#####0x02 写作环境</p>
+<blockquote>
+<p>Markdown</p>
+</blockquote>
+<p>主要采取一款开源在线的markdown编辑器，并计划在其基础上进行改进，使其更加符合个人习惯。</p>
+<p>#####0x03 修改主题</p>
+<blockquote>
+<p>Dubuqingfeng</p>
+</blockquote>
+<p>主题在bootstrap的样式和最近的material design材料样式之间纠结，在看了pelican的bootstrap的主题以后，想自己写一个主题，于是就去找关于material design设计的网站方面的资料，一开始谷歌推出这种设计语言的时候，大量应用于安卓应用，以摆脱应用风格不统一的问题，一些谷歌web网页也采取了这种设计。找到了多种设计框架，有material for bootstrap，materialize，…</p>
+<p>然后看了这两个官网，觉得materialize更简单，并且有相关实例，文档不难看懂，弄出的效果也接近material design。所以先用这种尝试写博客主题。写的时候，主要参考pelican文档里<a target="_blank" rel="noopener" href="http://pelican-docs-zh-cn.readthedocs.org/en/latest/themes.html">主题编写</a>部分，进行相关样式及模板的修改。</p>
+<p>在templates文件夹下，有base.html文件，其他继承这个文件，并且模板中还可以包含其他文件。设置或者读取常量可以在pelicanconf.py中配置。</p>
+<p>主题源码都在<a target="_blank" rel="noopener" href="https://github.com/sxau-web-team/MaterialDesignPelicanTheme">这里</a>，其中包含了用到的插件，以及个人博客的配置。</p>
+<p>#####0x04 插件配置</p>
+<p>目前主要使用了<a target="_blank" rel="noopener" href="https://github.com/sxau-web-team/MaterialDesignPelicanTheme/tree/master/pelican-plugins/sitemap">sitemap</a>，<a target="_blank" rel="noopener" href="https://github.com/sxau-web-team/MaterialDesignPelicanTheme/tree/master/pelican-plugins/gravatar">gravatar</a>这两个插件，以后采用新插件的时候，还会补充。</p>
+<p>#####0x05 程序维护</p>
+<p>pelican使用jinja2进行模板渲染，需要定期查看是否有新版本。</p>
+<p>jinja2</p>
+<p>flask</p>
+<p>Frozen-Flask</p>
+<p>相关系统：<br>Cactus</p>
+<p>#####0x06 域名等服务配置</p>
+<p>因blog放在github pages上，所以域名绑定可以在目录下建立名为CNAME的文件，里面保存顶级域名。然后域名A记录指向dubuqingfeng.github.io</p>
+<p>SSL证书配置？</p>
+<p>因blog为静态的，也不需要涉及后台的操作，所以https加密显得不是特别重要。</p>
+<p>RSS的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Feed generation is usually not desired when developing</span><br><span class="line">FEED_RSS &#x3D; u&quot;feeds&#x2F;all.rss.xml&quot;</span><br><span class="line">CATEGORY_FEED_RSS&#x3D;u&quot;feeds&#x2F;%s.rss.xml&quot;</span><br><span class="line">FEED_ALL_ATOM &#x3D; &#39;feeds&#x2F;all.atom.xml&#39;</span><br><span class="line">CATEGORY_FEED_ATOM &#x3D; None</span><br><span class="line">TRANSLATION_FEED_ATOM &#x3D; None</span><br><span class="line">AUTHOR_FEED_ATOM &#x3D; None</span><br><span class="line">AUTHOR_FEED_RSS &#x3D; None</span><br></pre></td></tr></table></figure>
+
+<p>然后RSS的地址为/feeds/all.rss.xml</p>
+<p>#####0x07 20170213更新</p>
+<p>博客通过阿里云万网进行国内和国外的分流，国内使用Coding pages进行托管，最近也上了SSL证书，设置了强制跳转，由于HTTPS不能访问HTTP资源，所以对主题进行了一定的改写，先将图片托管到七牛云平台，并通过认证开通HTTPS，然后就是百度分享的问题，根据<a target="_blank" rel="noopener" href="https://github.com/hrwhisper/baiduShare">这个仓库</a>的说明，修改了一些地址。然后就是评论就不支持多说了，于是换了友言，原来的评论后来被墙了，可怜。然后又加上了打赏按钮，虽然知道并不会有人打赏的。</p>
+<p>并且将博客代码放到了坚果云上，达到同步的效果（好几次苹果电脑打不开的情况，做个备份也罢）。后来发现，<a target="_blank" rel="noopener" href="https://xiaoye.me/">hexo博客</a>部署起来也很方便，只需要一个命令就可以了，<strong>hexo deploy</strong>类似这种的，配合git-deployer直接推到github pages，并且主分支就是hexo博客的代码，不用坚果云去同步。</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-12-21T16:02:22.000Z" title="2016-12-22 0:02:22">2016-12-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-12-21T16:02:22.000Z" title="2016-12-22 0:02:22">2016-12-22</time></span><span class="level-item">19 minutes read (About 2878 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/12/22/201606-android-security-decompiler/"> </a></h1><div class="content"><p>Title: Android Decompiler / 初探反编译<br>Date: 2016-06-25 17:24<br>Modified: 2016-06-27 22:31<br>Category: 【Android安全】<br>Tags: Android安全,Decompiler,反编译<br>Slug: 201606-android-security-decompiler<br>Author: admin<br>summary: 本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。</p>
+<p>#####0x00  TOC</p>
+<blockquote>
+<p>原理</p>
+</blockquote>
+<blockquote>
+<p>无混淆无加密无加壳</p>
+</blockquote>
+<blockquote>
+<p>仅混淆</p>
+</blockquote>
+<blockquote>
+<p>仅加密</p>
+</blockquote>
+<blockquote>
+<p>仅加壳</p>
+</blockquote>
+<blockquote>
+<p>自动化实现</p>
+</blockquote>
+<blockquote>
+<p>一些软件</p>
+</blockquote>
+<blockquote>
+<p>参考链接</p>
+</blockquote>
+<p>#####0x01  原理</p>
+<p>首先在逆向领域，有一个是需要区别的。就是反汇编和反编译。</p>
+<p>反汇编把程序的原始机器码，翻译成较便于阅读理解的汇编代码。比如IDA、OD等。</p>
+<p>反编译，通常是将机器码(汇编语言)转换为高级编程语言。</p>
+<p>由于Java、.net这样的基于虚拟机技术的语言都是采用了ByteCode的二进制结构，因此很容易将ByteCode转化为“抽象语法树”（简称AST，《编译原理》这门课中的概念），然后采用反编译器就可以将AST转换为代码了。</p>
+<p>详细可以参考乌云上的文章<a target="_blank" rel="noopener" href="http://drops.wooyun.org/papers/13686">反编译系列教程(上)</a></p>
+<p>#####0x02  无混淆无加密无加壳</p>
+<p>一个Android程序，如果没有进行混淆，加密，加壳等行为时，如果进行反编译的话，是可以逆向到Java源码的。</p>
+<p>1.<a target="_blank" rel="noopener" href="https://github.com/pxb1988/dex2jar">Dex2Jar</a>和<a target="_blank" rel="noopener" href="https://github.com/java-decompiler/jd-gui">JD-GUI</a>(或者Jad)</p>
+<p>先通过Dex2Jar软件将<code>classes.dex</code>转换为jar文件，然后再通过Java反编译工具JD-GUI将jar文件转换成JAVA源文件。</p>
+<p>总之这是通过dex转jar，然后再转java源代码的思路。其中dex转jar也可以选择一些其他软件，例如谷歌官方的<a target="_blank" rel="noopener" href="https://github.com/google/enjarify">enjarify</a>。</p>
+<p>下载Dex2Jar和Jd-gui的地址：</p>
+<p>Dex2Jar:<a target="_blank" rel="noopener" href="https://github.com/pxb1988/dex2jar/releases">https://github.com/pxb1988/dex2jar/releases</a></p>
+<p>JD-GUI:<a target="_blank" rel="noopener" href="http://jd.benow.ca/">http://jd.benow.ca/</a></p>
+<p>使用Dex2Jar和Jd-gui的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dex2jar &lt;file0&gt;</span><br><span class="line">&#x2F;&#x2F;即</span><br><span class="line">.&#x2F;d2j-dex2jar.sh xxx.apk</span><br><span class="line">java -jar jd-gui-x.y.z.jar</span><br><span class="line">&#x2F;&#x2F;或者是</span><br><span class="line">java -classpath jd-gui-x.y.z.jar org.jd.gui.App</span><br><span class="line">&#x2F;&#x2F;也可以直接运行客户端</span><br></pre></td></tr></table></figure>
+
+<p>以下即为反汇编出来的结果。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-01.png" class="responsive-img">
+
+<p>2.APK改之理、APKDB、Android逆向助手、Android Killer之类软件</p>
+<p>实际本质上还是通过Dex2jar或者apktool工具的封装。</p>
+<p>还有一个Jadx的软件也比较好用。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-02.png" class="responsive-img">
+
+<p>3.在线反编译网站</p>
+<p>地址：<a target="_blank" rel="noopener" href="http://www.decompileandroid.com/">http://www.decompileandroid.com/</a></p>
+<p>地址：<a target="_blank" rel="noopener" href="http://www.ludaima.cn/android.html">http://www.ludaima.cn/android.html</a></p>
+<p>只需要上传需要反编译的apk，稍等片刻，即可下载源码。</p>
+<p>4.smali和Baksmali以及<a target="_blank" rel="noopener" href="http://blog.avlyun.com/show/%E3%80%8Asv%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97%E3%80%8B/">Smali Viewer</a></p>
+<p>smali是将smali文件转换成dex。</p>
+<p>Baksmali和smali相反，将dex转换成smali。</p>
+<p>在<a target="_blank" rel="noopener" href="https://www.quora.com/What-is-smali-in-Android">Quora的一篇问答</a>中，介绍了smali和baksmali的作用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Smali&#x2F;Baksmali is an assembler&#x2F;disassembler for the dex format used by dalvik,</span><br><span class="line"> Android&#39;s Java VM implementation. The names &quot;Smali&quot; and &quot;Baksmali&quot; are the</span><br><span class="line">  Icelandic equivalents of &quot;assembler&quot; and &quot;disassembler&quot; respectively.</span><br></pre></td></tr></table></figure>
+
+<p>#####0x03  仅混淆</p>
+<p>通常Android混淆方法，有ProGuard、DexGuard和APKfuscator等。</p>
+<p>怎样使用ProGuard对Android项目源码进行混淆保护，在Android Studio中build.gradle，修改以下代码片段</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">release &#123;</span><br><span class="line">    minifyEnabled <span class="keyword">true</span></span><br><span class="line">    <span class="function">proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">&#x27;proguard-android-optimize.txt&#x27;</span>)</span>,</span></span><br><span class="line"><span class="function">     &#x27;proguard-rules.pro&#x27;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>将<code>minifyEnabled</code>改为true。去除无效资源的话需要添加<a target="_blank" rel="noopener" href="http://tools.android.com/tech-docs/new-build-system/resource-shrinking"><code>shrinkResources true</code></a>。</p>
+<p>然后在<code>proguard-rules.pro</code>文件中，编写一些特定框架的混淆规则。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># ProGuard configurations for Bugtags</span><br><span class="line">-keepattributes LineNumberTable,SourceFile</span><br><span class="line"></span><br><span class="line">-keep class com.bugtags.library.** &#123;*;&#125;</span><br><span class="line">-dontwarn org.apache.http.**</span><br><span class="line">-dontwarn android.net.http.AndroidHttpClient</span><br><span class="line">-dontwarn com.bugtags.library.**</span><br><span class="line"># End Bugtags</span><br><span class="line"></span><br><span class="line"># retrofit</span><br><span class="line">-dontwarn retrofit2.**</span><br><span class="line">-keep class retrofit2.** &#123; *; &#125;</span><br><span class="line">-keepattributes Signature</span><br><span class="line">-keepattributes Exceptions</span><br><span class="line"></span><br><span class="line"># android-async-http</span><br><span class="line">-dontwarn android-async-http-1.4.9.jar.**</span><br><span class="line">-keep class android-async-http-1.4.9.jar.**&#123;*;&#125;</span><br><span class="line">-keep class org.apache.http.** &#123;*; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>并且混淆时需要对使用的框架进行混淆，或者是避免混淆一些类。这时就对框架的文档进行阅读，分析需要增加的混淆规则。</p>
+<p>混淆的效果如下图所示。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-03.png" class="responsive-img">
+
+<p>以及加速gradle编译的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">org.gradle.daemon&#x3D;true</span><br><span class="line">org.gradle.jvmargs&#x3D;-Xmx2048m -XX:MaxPermSize&#x3D;512m -XX:</span><br><span class="line">+HeapDumpOnOutOfMemoryError -Dfile.encoding&#x3D;UTF-8</span><br><span class="line">org.gradle.parallel&#x3D;true</span><br><span class="line">org.gradle.configureondemand&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<p>如何对抗这种混淆呢？这种混淆仅仅是增大了阅读难度，在反汇编之后，类名变成了a,b,c之类的。</p>
+<p>dex2jar作者在<a target="_blank" rel="noopener" href="http://secwiki.neu.edu.cn/wiki/images/e/eb/Android%E6%B7%B7%E6%B7%86%E6%8A%80%E5%B7%A7%E4%B8%8E%E5%8F%8D%E6%B7%B7%E6%B7%86_%E5%B0%8F%E6%B3%A2.pdf">Android混淆技巧与反混淆</a>中谈到，ProGuard有Shrinking、Optimization、Name Obfuscation、Removal of logging code等功能。在面对名字替换时，有阅读源代码、JEB、ProGuard分析等方法，Flanker大牛也分享过利用<a target="_blank" rel="noopener" href="http://drops.wooyun.org/mobile/6665">JEB API编写插件分析</a>。</p>
+<p>默认的混淆规则在<a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/sdk/+/master/files/proguard-android.txt">proguard-android.txt</a>。</p>
+<p>可以使用Proguard再混淆一次，利用自己写的规则Mapping文件。</p>
+<p>这里以一个文件为例。进行Proguard的混淆以及反混淆。</p>
+<p>在Proguard配置文件中，添加如下语句，可打印出默认混淆规则的Mapping文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-printmapping mapping.txt</span><br></pre></td></tr></table></figure>
+
+<p>在修改好对应的值以后，利用以下语句，应用Mapping文件，再建一个项目，分析对应的代码。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-applymapping mapping.txt</span><br></pre></td></tr></table></figure>
+
+<p>最后结果如下：</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-04.png" class="responsive-img">
+
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-05.png" class="responsive-img">
+
+<p>这样反混淆了以后，降低了代码阅读的难度，增加了应用被破解的风险。</p>
+<p>#####0x04  仅加密</p>
+<p>加密方式有很多种，本文不能面面俱到，只能找出一些典型的。比如有流程混排加密、代码内部字符串加密，对so源码、so函数名称以及接口调用进行加密隐藏，对classes.dex中的所有函数功能代码进行提取，然后加密单独存放等。</p>
+<p>当然如果面面俱到，文章篇幅就比较长了，并且实践、研究花费的时间也比较多。这里就举比较简单的例子。</p>
+<p>Android签名校验：</p>
+<p>在android程序中，可以使用以下代码进行签名的获取。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSignature</span><span class="params">(String packageName)</span> </span>&#123;</span><br><span class="line">    PackageManager pm = <span class="keyword">this</span>.getPackageManager();</span><br><span class="line">    PackageInfo pi = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">int</span> sig = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);</span><br><span class="line">        Signature[] s = pi.signatures;</span><br><span class="line">        sig = s[<span class="number">0</span>].hashCode();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e1) &#123;</span><br><span class="line">        sig = <span class="number">0</span>;</span><br><span class="line">        e1.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sig;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以在APP每次访问服务器的时候，携带上当前APP的签名，服务端做个签名验证，如果不对，直接不通过，返回客户端信息，然后客户端进行一定的处理。当然这样的话破解者也可以通过抓包的方式，抓取到签名验证的包，然后每次通信时修改对应的包即可。</p>
+<p>#####0x05  仅加壳</p>
+<p>so加壳，upx是最为so加壳的首选，以前在PC端也做过<a target="_blank" rel="noopener" href="http://qingfeng520.blog.51cto.com/7098444/1256106">upx的脱壳</a>。</p>
+<p>这里做个示例，加壳so。</p>
+<p>在前一篇文章里，涉及到了如何在so里打log文件。在写好jni代码了以后，将so文件复制出来。</p>
+<p>然后添加到文件夹里，如下图所示。</p>
+<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-06.png" class="responsive-img">
+
+<p>准备UPX壳编译环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zlib-1.2.8.tar.gz</span><br><span class="line">ucl-1.03.tar.gz</span><br><span class="line">lzma443.tar.bz2</span><br><span class="line">upx-hg-68db2e569c63.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>编译安装:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd ucl-1.03</span><br><span class="line">.&#x2F;configure --prefix&#x3D;$PWD&#x2F;..&#x2F;..&#x2F;upx-hg-6cd5982ece4f&#x2F;build</span><br><span class="line">make</span><br><span class="line">cd zlib-1.2.8</span><br><span class="line">.&#x2F;configure --prefix&#x3D;$PWD&#x2F;..&#x2F;..&#x2F;upx-hg-6cd5982ece4f&#x2F;build</span><br><span class="line">make</span><br><span class="line">vi .bash_profile</span><br></pre></td></tr></table></figure>
+
+<p>设置环境变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export UPX_UCLDIR&#x3D;&#x2F;Users&#x2F;qingfeng&#x2F;software&#x2F;upx&#x2F;libs&#x2F;ucl-1.03</span><br><span class="line">export UPX_ZLIBDIR&#x3D;&#x2F;Users&#x2F;qingfeng&#x2F;software&#x2F;upx&#x2F;libs&#x2F;zlib-1.2.8</span><br><span class="line">export UPX_LZMADIR&#x3D;&#x2F;Users&#x2F;qingfeng&#x2F;software&#x2F;upx&#x2F;libs&#x2F;lzma443</span><br><span class="line">export UPX_LZMA_VERSION&#x3D;0x443</span><br><span class="line">export UPX_DIR&#x3D;&#x2F;Users&#x2F;qingfeng&#x2F;software&#x2F;upx&#x2F;upx-hg-68db2e569c63</span><br></pre></td></tr></table></figure>
+
+<p>查看环境变量的命令env，应用环境变量的命令<code>source .bash_profile</code>。</p>
+<p>然后在编译<code>make all</code>的过程中，遇到了以下的错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;bele_policy.h:156:9: error: unused typedef &#39;acc_cta_t__39&#39; [-Werror,-Wunused-local-typedef]</span><br><span class="line">        COMPILE_TIME_ASSERT(sizeof(U16) &#x3D;&#x3D; 2)</span><br><span class="line">        ^</span><br><span class="line">.&#x2F;conf.h:359:34: note: expanded from macro &#39;COMPILE_TIME_ASSERT&#39;</span><br><span class="line">#define COMPILE_TIME_ASSERT(e)   ACC_COMPILE_TIME_ASSERT(e)</span><br><span class="line">.&#x2F;miniacc.h:1563:54: note: expanded from macro &#39;ACC_COMPILE_TIME_ASSERT&#39;</span><br><span class="line">#    define ACC_COMPILE_TIME_ASSERT(e)  &#123;typedef int __ACC_CTA_NAME(acc_cta_t__)[1-2*!(e)];&#125;</span><br><span class="line">.&#x2F;miniacc.h:1531:37: note: expanded from macro &#39;__ACC_CTA_NAME&#39;</span><br><span class="line">#  define __ACC_CTA_NAME(a)         ACC_PP_ECONCAT2(a,__COUNTER__)</span><br><span class="line">.&#x2F;miniacc.h:331:41: note: expanded from macro &#39;ACC_PP_ECONCAT2&#39;</span><br><span class="line">#define ACC_PP_ECONCAT2(a,b)            ACC_PP_CONCAT2(a,b)</span><br><span class="line">.&#x2F;miniacc.h:325:41: note: expanded from macro &#39;ACC_PP_CONCAT2&#39;</span><br><span class="line">#define ACC_PP_CONCAT2(a,b)             a ## b</span><br><span class="line">&lt;scratch space&gt;:183:1: note: expanded from here</span><br><span class="line">acc_cta_t__39</span><br></pre></td></tr></table></figure>
+
+<p>无论是upx是3.9.1，还是最新版，无论lzma是443版本还是最新版1610，编译的时候都会出现这个问题</p>
+<p>然后试着升级了一下g++的版本，mac自带的是4.2版本，用brew升级到了4.8，然后用zsh的alias功能（vi .zshrc）将自带的替换掉，然后再编译还是不行，最后还是使用ubuntu进行编译吧。</p>
+<p>然后就下了一个16.04的镜像，然后跑起了虚拟机，下载并<a target="_blank" rel="noopener" href="http://www.chinapyg.com/thread-77929-1-1.html">编译那些依赖</a>，然后在upx目录下<code>make all</code>的过程中，出现了以下的问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">compress.cpp:32:18: fatal error: zlib.h: No such file or directory</span><br><span class="line">     #include &lt;zlib.h&gt;</span><br></pre></td></tr></table></figure>
+
+<p>没找到<code>zlib.h</code>，可是自己在zlib那也<code>make</code>了啊，在查找资料的过程中，试着在zlib目录<code>make install</code>了一下，然后就编译完成了，在src目录下也有<code>./upx.out</code>了，版本是3.9.2。</p>
+<p>这个时候就应该考虑so的init段的问题了。据这篇文章说，加壳的文件中需要有INIT段，添加init段的代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> _init(<span class="keyword">void</span>)&#123;&#125; \\c++</span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;<span class="keyword">void</span> _init(<span class="keyword">void</span>)&#123;&#125;&#125;    \\c</span><br></pre></td></tr></table></figure>
+
+<p>然后加壳的命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;upx.out -f -o libdemo_upx.so libdemo.so</span><br></pre></td></tr></table></figure>
+
+<p>然后脱壳自然-d参数即可，需要判断标志是否为UPX!，以及处理变形等问题，脱完壳就可以使用IDA进行android的so分析了。</p>
+<p>#####0x06  自动化实现</p>
+<p>如何实现一些自动化脚本，进行反汇编的还原工作。</p>
+<p>当然网上已经有人实现过相关内容，比如Mac下的<a target="_blank" rel="noopener" href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>，或者是<a target="_blank" rel="noopener" href="https://github.com/luckyandyzhang/easy-android-decompiler">easy-android-decompiler</a>。</p>
+<p>#####0x07  一些软件</p>
+<blockquote>
+<p>Baksmali 和 Dedexer</p>
+</blockquote>
+<blockquote>
+<p>apktool</p>
+</blockquote>
+<blockquote>
+<p>JEB</p>
+</blockquote>
+<blockquote>
+<p>jadx</p>
+</blockquote>
+<blockquote>
+<p>jdgui</p>
+</blockquote>
+<p>DEX转jar：</p>
+<blockquote>
+<p>enjarify</p>
+</blockquote>
+<blockquote>
+<p>dex2jar</p>
+</blockquote>
+<p>app调试器：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://gikir.com/product.php">gikdbg</a></p>
+</blockquote>
+<p>代码混淆软件：</p>
+<blockquote>
+<p>Proguard</p>
+</blockquote>
+<blockquote>
+<p>DashO</p>
+</blockquote>
+<blockquote>
+<p>Dexguard</p>
+</blockquote>
+<blockquote>
+<p>DexProtector</p>
+</blockquote>
+<blockquote>
+<p>ApkProtect</p>
+</blockquote>
+<blockquote>
+<p>Shield4j</p>
+</blockquote>
+<blockquote>
+<p>Stringer</p>
+</blockquote>
+<blockquote>
+<p>Allitori</p>
+</blockquote>
+<p>对抗混淆：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/dex-oracle">dex-oracle</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/simplify">simplify</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/konloch/bytecode-viewer">bytecode-viewer</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/Juude/droidReverse">逆向工程集</a></p>
+<p>#####0x08  参考链接</p>
+<p>当然实际情况是混淆，加密，加壳综合起来的，实际情况要具体分析。</p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="http://drops.wooyun.org/tips/2871">一次app抓包引发的Android分析记录</a></p>
+<p><a target="_blank" rel="noopener" href="http://kiya.space/2015/11/12/Android-security-tools/">Android 安全工具包（持续更新）</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/guolin_blog/article/details/49738023">Android安全攻防战，反编译与混淆技术完全解析</a></p>
+<p><a target="_blank" rel="noopener" href="http://drops.wooyun.org/mobile/12172">Android应用安全开发之源码安全</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.wjdiankong.cn/blog/android%E9%80%86%E5%90%91%E4%B9%8B%E6%97%85-%E5%8F%8D%E7%BC%96%E8%AF%91%E5%88%A9%E5%99%A8apktool%E5%92%8Cjadx%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8A%E9%94%99%E8%AF%AF%E7%BA%A0/">Android逆向之旅—反编译利器Apktool和Jadx源码分析以及错误纠正</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-09-12T11:04:50.000Z" title="2016-9-12 19:04:50">2016-09-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-09-12T11:04:50.000Z" title="2016-9-12 19:04:50">2016-09-12</time></span><span class="level-item">5 minutes read (About 757 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/09/12/201506-android-Preference-fragment/"> </a></h1><div class="content"><p>Title: 如何使用PreferenceFragment方便地完成设置界面<br>Date: 2015-06-06 12:13<br>Modified: 2015-06-06 12:13<br>Category: 【Android】<br>Tags: Android,PreferenceFragment<br>Slug: 201506-android-Preference-fragment<br>Author: admin<br>summary: 在android中，利用PreferenceFragment快速完成设置界面以及一些思考。</p>
+<p>#####0x01 前言</p>
+<p>在设置界面的开发时，以前往往通过自己写界面，在没有合适美工时，比较费时费力，尤其是以前需要兼容Android2.3的时候。当3.0以后出现了PreferenceFragment，可以快速地完成一个类似于系统设置的偏好设定界面。</p>
+<p>在android3.0以后，官方推荐使用PreferenceFragment去替代PreferenceActivity。<br>以及一些配置。</p>
+<p>#####0x02 浅析</p>
+<p>PreferenceFragment是继承于Fragment，实现了PreferenceManager.OnPreferenceTreeClickListener这些接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Interface definition for a callback to be invoked when a</span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> Preference&#125; in the hierarchy rooted at this </span></span><br><span class="line"><span class="comment"> * &#123;<span class="doctag">@link</span> PreferenceScreen&#125; is</span></span><br><span class="line"><span class="comment"> * clicked.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@hide</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">OnPreferenceTreeClickListener</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Called when a preference in the tree rooted at this</span></span><br><span class="line"><span class="comment">     * &#123;<span class="doctag">@link</span> PreferenceScreen&#125; has been clicked.</span></span><br><span class="line"><span class="comment">     * </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> preferenceScreen The &#123;<span class="doctag">@link</span> PreferenceScreen&#125; that the</span></span><br><span class="line"><span class="comment">     *        preference is located in.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> preference The preference that was clicked.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> Whether the click was handled.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">onPreferenceTreeClick</span><span class="params">(PreferenceScreen </span></span></span><br><span class="line"><span class="function"><span class="params">    preferenceScreen, Preference preference)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#####0x03 完成步骤</p>
+<p>通过新建项目的方式：</p>
+<p>在android-studio里，新建一个项目：PreferenceFragmentDemo</p>
+<p>选择Blank Activity With Fragment，填写activity为SettingActivity。</p>
+<p><strong>修改fragment继承PreferenceFragment。</strong></p>
+<p>新建一个xml文件，建立/res/xml/preferences.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;PreferenceScreen</span><br><span class="line">    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;PreferenceCategory</span><br><span class="line">        android:title=&quot;设置A&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;CheckBoxPreference</span><br><span class="line">            android:key=&quot;checkbox_preference&quot;</span><br><span class="line">            android:title=&quot;标题&quot;</span><br><span class="line">            android:summary=&quot;详细&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">PreferenceCategory</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    &lt;PreferenceCategory</span><br><span class="line">        android:title=&quot;设置B&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;EditTextPreference</span><br><span class="line">            android:key=&quot;edittext_preference&quot;</span><br><span class="line">            android:title=&quot;标题&quot;</span><br><span class="line">            android:summary=&quot;详细&quot;</span><br><span class="line">            android:dialogTitle=&quot;对话框标题&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">PreferenceCategory</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">PreferenceScreen</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在SettingFragment中，通过addPreferencesFromResource(R.xml.preferences);加载上述的xml文件。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    addPreferencesFromResource(R.xml.preferences);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>设置项保存到哪了？SharedPreferences。在/data/data/应用包名/shared_prefs/应用包名_preferences.xml文件中，android:key即为键值名。</p>
+<p>如何读取设置？通过SharedPreferences</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SharedPreferences mySharedPreferences = PreferenceManager</span><br><span class="line">        .getDefaultSharedPreferences(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">boolean</span> my_checkbox_preference = mySharedPreferences.getBoolean(</span><br><span class="line">        <span class="string">&quot;checkbox_preference&quot;</span>, <span class="keyword">false</span>);</span><br><span class="line">prefCheckBox.setChecked(my_checkbox_preference);</span><br><span class="line"></span><br><span class="line">String my_edittext_preference = mySharedPreferences.getString(</span><br><span class="line">        <span class="string">&quot;edittext_preference&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">prefEditText.setText(my_edittext_preference);</span><br></pre></td></tr></table></figure>
+<p>列表设置项的ListPreferences类：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListPreference</span><br><span class="line">      android:key=&quot;list_preference&quot;</span><br><span class="line">      android:title=&quot;@string/标题&quot;</span><br><span class="line">      android:dialogTitle=&quot;@string/对话框标题&quot;</span><br><span class="line">      android:entries=&quot;@array/listArray&quot;</span><br><span class="line">      android:entryValues=&quot;@array/listValues&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>entries和entryValues从哪来？/res/values/array.xml或者/res/values/strings.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">&quot;listArray&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>Headings<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>Headings and Details<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>All Data<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">string-array</span> <span class="attr">name</span>=<span class="string">&quot;listValues&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>1<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>2<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span>3<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">string-array</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>preference-headers类</p>
+<p>#####0x04 Preference类<br>前几天在SIMS(学生信息管理系统)项目中，涉及到了Preference这个类，当时可以通过输入输出流进行与文件的交互。</p>
+<p>在Java里可以利用这个类进行一些配置信息的保存等。</p>
+<p>详情可参考<a target="_blank" rel="noopener" href="https://github.com/DigDream/SIMS/blob/master/src/com/student/sb/utils/PropertiesUtils.java">PropertiesUtils</a>的实现。</p>
+<p>#####0x05 思考</p>
+<p>其PreferenceFragment文件源码地址在：<a target="_blank" rel="noopener" href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/preference/PreferenceFragment.java">GoogleSource</a>，其中利用了ListView进行界面绘制。另外grepcode.com这个网站是个不错的查看android源代码(AOSP)的网站。以及还有一些<a target="_blank" rel="noopener" href="http://www.programcreek.com/java-api-examples/index.php?api=android.preference.PreferenceFragment">示例代码</a>。</p>
+<p>并且文档里还介绍了android3.0以前如果想用PreferenceFragment怎么办，详细参考<a target="_blank" rel="noopener" href="http://developer.android.com/guide/topics/ui/settings.html#BackCompatHeaders">这个链接</a>。</p>
+<p><a href="%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90"></a></p>
+<p>#####0x06 参考链接</p>
+<p><a target="_blank" rel="noopener" href="http://developer.android.com/guide/topics/ui/settings.html">settings</a></p>
+<p><a target="_blank" rel="noopener" href="http://developer.android.com/reference/android/preference/PreferenceFragment.html">官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cs.dartmouth.edu/~campbell/cs65/lecture12/lecture12.html">Using PreferenceFragment to store user preferences</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/codepath/android_guides/wiki/Settings-with-PreferenceFragment">Settings-with-PreferenceFragment</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-04-12T03:20:51.000Z" title="2016-4-12 11:20:51">2016-04-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-04-12T03:20:51.000Z" title="2016-4-12 11:20:51">2016-04-12</time></span><span class="level-item">6 minutes read (About 952 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/12/201406-essay-match-summary/"> </a></h1><div class="content"><p>Title: 计算机趣味知识竞赛活动总结<br>Date: 2014-06-12 17:22<br>Modified: 2014-06-12 20:42<br>Category: 【随笔】<br>Tags: 随笔<br>Slug: 201406-essay-match-summary<br>Author: admin<br>summary: 作为社团一次活动的总结性文字，作为自我总结也好，回顾活动也罢。</p>
+<br>
+在一个农业大学，计算机方面发展不太好，大多数学生并不对计算机感兴趣，如何激发社团成员对计算机的兴趣，社团活动需要一定的变化。上学期让学有余力的同学进行讲课等活动，渴望更多同学激发兴趣，一块学习，可是效果却不如人意，大部分的人不听，就好像和他们毫不相干，我们更不会讲和上课老师讲的相似的内容，基本也是我们讲课人员精心备过课的，还有部分人听不懂，我们讲的也很基础，很简单。不会也应该积极提问，我们都很耐心的教的。因此需要活动形式的改变。
+
+<br>
+面对各大高校积极筹办各类计算机比赛，如信息安全，acm算法，程序设计，图像设计，网络安全等类的比赛，最近中北大学也进行过比赛。咱们大学，在计算机方向发展的人还是较少，老师有时讲的很无趣，自学的人较少，且自学程度较浅，更何况没信息安全专业，没那方面的人才，以及也没有做acm算法类的，这又可以算到硬件方面也跟不上，没有相关的创新实验室，所以在咱们大学办高级点的计算机比赛实为困难，没人会那些比赛内容，办设计类的比赛需要前期投入许多，因此只能尝试计算机基础性知识比赛。
+
+<br>
+社团是由兴趣爱好产生的。这个比赛初赛采取每个班出人的形式，一方面班长对本班计算机爱好者也有一定了解，另一方面，那些爱好者为了班级荣誉也好而去参加初赛，比自愿的形式较好。
+
+<br>
+决赛的时候，由于准备不充分，没有相关经验，并没实际见过类似比赛，所以不能尽某些人的满意，一方面我们也在思考农业大学发展计算机比赛是否发展的下去，是否能为以后的信息化讲座等做好铺垫。
+
+<br>
+还有策划书感觉不太完善，那会是电子设计创新社负责策划书。
+
+<br>
+这类型的比赛，说重视也不重视，说不重视也有点重视。总之，每班出三个人也去不了，自愿的就更少了，去的人整体水平并不高，因此这类型的比赛也发展不起来。像计算机方面的比赛还是很多的，例如网络攻防，acm算法，网页设计等。比计算机基础知识的比赛难的还有很多，但是大学里没几个研究这方面的内容，是很难办得起的。
+
+<br>
+高校应该更好地培养同学们的兴趣，而不应该扼杀兴趣。以前对教学工作的印象是一个老头在无聊地讲着PPT，来了以后，虽然比老头更年轻点，但是扼杀兴趣的能力依然很厉害。反而限制同学们的思维自由，言论自由。</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-04-12T03:15:27.000Z" title="2016-4-12 11:15:27">2016-04-12</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-04-12T03:15:27.000Z" title="2016-4-12 11:15:27">2016-04-12</time></span><span class="level-item">8 minutes read (About 1143 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2016/04/12/201406-essay-mind-facts/"> </a></h1><div class="content"><p>Title: 解放思想，实事求是<br>Date: 2014-06-11 13:42<br>Modified: 2014-06-11 16:42<br>Category: 【随笔】<br>Tags: 随笔<br>Slug: 201406-essay-mind-facts<br>Author: admin<br>summary:这是因为被限制进行实践研究而写的一些胡言乱语，也许多年以后回顾起来只是一种不一样的感觉吧，慢慢会被磨平的。</p>
+<br>
+什么是真正的解放思想，思想真的自由么，不是思想自由的解放思想可能会“思想永远得不到解放”，风筝如何能飞得更高更远，亦在于风势，亦在于风筝人。如何扩大高校影响力，莫不过加强学科建设、提高教学水平、加强科研工作、扩大对外开 放等。一如高校建立五星级酒店，实属本末倒置，未能研究高深学问，逐渐变得官僚化、利益化。未能将学术研究、教学育人当成主要任务，反而苦苦纠结于蝇头小利，反而将思想进行了禁锢，未能更自由更开放。
+
+<br>
+大量的扩招，不仅降低了门槛，而且下降了质量。多少年的应试教育，换不来几年的素质教育。素质教育在于创造性能力、自学能力、社会公德、世界观、人生观等的培养，这恰恰是当今人们所需要的，长期推行应试教育，到底能得到什么呢，想要得到什么呢，反而有了更多的约束，更多的限制。
+
+<br>
+某些人，某些事，或许不想评论，或许不需评论。强迫的事反而要说不强迫，究竟什么支持了这种想法，虚伪对待他人，人如饮水，冷暖自知，于是就发生了变质。反而有些人却要宣传“解放思想，实事求是”，做到“团结一致向前看”了么？
+
+<br>
+如何能解决问题？敞开思想，发挥民主，畅所欲言，敢于讲真话，讲实在话。思想并不是无限度的，但不是禁锢的，否则问题只会在根深蒂固的时候逐渐暴露。很多 同志思想不够解放，还处在僵化状态。他们还将很多人们的思想封闭在他们划的圈中，不准越雷池一步，否则就要追查。这样如何发展，如何成为硬道理。民主集中 制受到破坏，确实存在权力过分集中的官僚主义，常常以“禁止越权”、“逐级上报”、“不允许的事情不能做”、“做事前得问问意见”的面貌出现。许多重大问题往往是一两个人说了算，别人只能奉命行事。这样，大家就什么问题都用不着思考了，更谈不上什么思想解放。还有是非功过不清，赏罚不明，做和不做一个样，甚至做得好也受打击，在不成文的规定之下，人们更不愿意去思考了。
+
+<br>
+邓小平曾经讲过，用人的政治标准是什么？为人民造福，为发展生产力、为社会主义事业作出积极贡献，这就是主要的政治标准。
+
+<br>
+毛泽东思想核心就是实事求是，就是是一说一，是二说二，严格按照客观现实思考或办事。从实际情况出发，不夸大，不缩小，正确地对待和处理问题，求得正确的结论。倡导“知行合一，实事求是”。
+
+<br>
+引用点百度百科资料，1940年在《新民主主义论》中谈到“中国向何处去”时指出唯有科学的态度和负责的精神，才能引导我们的民族达到解放之路。他说：“科学的态度是‘实事求是’，‘自以为是’和‘好为人师’那样狂妄的态度是决不能解决问题的”(《毛泽东选集》第2卷，第663页)。
+
+<br>
+最后以一句歌词结尾，听听这首歌吧。
+
+<br>
+求名利，无了时，千金难买好人生。</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2015-03-24T20:22:44.000Z" title="2015-3-25 4:22:44">2015-03-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2015-03-24T20:22:44.000Z" title="2015-3-25 4:22:44">2015-03-25</time></span><span class="level-item">23 minutes read (About 3505 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2015/03/25/201502-2014-2014/"> </a></h1><div class="content"><p>Title: 2014年的那些碎碎念。<br>Date: 2015-02-12 12:22<br>Modified: 2015-02-12 12:22<br>Category: 【2014】<br>Tags: 2014,年终总结<br>Slug: 201502-2014<br>Author: admin<br>summary: 转眼之间大学已度一半有余，这一年没有了刚来大学的不习惯，逐渐地在寻找自己的那一只方向，经历过迷茫，也经历过幻想。收到过感动，也收到过挫折。在那片青葱岁月，却不忍唏嘘几句。</p>
+<p>#####0x01 前言<br>转眼之间大学已度一半有余，没有了刚来大学的不习惯，逐渐地在寻找自己的那一只方向，从建立社团，到建立小组，以及各方面的为人处世，慢慢地提高自己，并且在所学领域希望也可以有一定的思考。<br>#####0x02 起<br>寒假里学习php代码审计以及一些安全方面基础部分的知识，假期结束后，和一些同学一块讨论去做三维的农大地图，使用3dmax或者maya进行绘制模型，后来也许因为分歧等原因，退出了相关活动，另外自己设备的落后也跟不上他们，还是他们弄吧。安心做做其他方面的事情，去试着写写书，在读者的角度，多弄一些图片，然后积累自己的这一方面的经验。<br>#####0x03 承<br>一开始“兴致勃勃”地去参加校学生会面试，面试网络中心，那时并不理解什么正装，只是随意的打扮，面试之时，尽力使自己不紧张，从社团慢慢开始介绍，到那次比赛，再到对计算机感兴趣，再到工作的想法，他们面试官也比较觉得特别，并且会说以后会联系，当初想去竞争这个职位，并不是想去得到一官半职，而是想对社团搞活动的时候也有所帮助，还可以去培养一些网络或者网站方面的人才。</p>
+<p>后来他们让做学生会网站，当时想法是通过织梦cms仿一套模板，然后将这托管到网络中心，后来了解到网络中心一般也不给这权限，当时也想也对，如果有个远程执行代码的漏洞，getshell，进一步提权，然后可以控制内网主机，织梦在后台可以直接上传文件而getshell，并且逐步开始接触CSS，去了解那些盒子模型，以及一些浮动等的基础知识，然后一知半解的去看超越css，css设计之禅等书籍，进行相关的设计，当时还没怎么接触bootstrap，使用基础的css进行设计，javascript当时也不会，后来又有一个做图书馆网站的任务，然后进行学习php，语法有的和C语言类似，进而学习如何去设计实例，设计分页。还需要注意如何避免sql注入和xss跨站攻击，以及后台登录的语句的拼接而避免万能密码的出现。记得当时一开始测试xss用例的时候，很容易弹出对话框，当然不同浏览器还有不同的方法。</p>
+<p>当时班级里还有一项统计科技创新项目的活动，班里找了几个人进行研究，当时说是会有资金支持，于是就想题目，从四轴飞行器到电动滑板车，再到一些电子设计方面的小的心型流水灯，还有特殊的盗梦陀螺，在效应和性能以及资料丰富度的各项比较中，最终选了四轴飞行器喷农药投炸弹的想法，通过控制其飞行，然后投一定的物体，这种应用当时也没有合适产品进行量产的。经过车老师的推荐，得到了信科院副院长的指点，然后还进行所需材料的统计，统计并查找资料，得出大致成本在一千元附近，电池也是航模电池的那种，然后进行改造，使其可以稳定的投放农药。后来这个项目还是没有得到资金，后来听说另外一个省级项目也没有得到相应的资金，所以被迫停止了，毕竟航模的东西好多都是烧钱的。</p>
+<p>社团还合作举行了计算机应用大赛，进行计算机基础方面的较量，虽然其中有不少尴尬，但是也没弄过类似的活动，好多都不熟悉。</p>
+<p>在五六月份的时候，感觉有点无聊，然后觉得还是报个比赛试试看，当时也有博创杯这种硬件方面的比赛，当时觉得硬件方面基本都不会，还是报个软件类的提高一下，于是选了个移动互联网创业的类型的，上面也有安全的方向，本身也对安全报有好感，所以还是选个题目，安全范围也比较广，移动安全还是属于比较热门的，然后结合点硬件方面的，进行一定的攻防，当时万能钥匙还不是很火，如何捍卫wifi，nfc之类的安全，这是思考的问题，然后设计了wifi安全管家和一个nfc安全助手，当时对安卓编程还是不是很了解，只是在13年接触过很少的东西，然后通过一些实例继续了解安卓编程方面的知识。不管能不能成功做出来以及效果如何，都是有所收获的，当时就应该觉得泛泛的不如专注一点去研究，并且这方面的资料也比较少，基本了解了一些安卓基础的知识。<br>#####0x04 转<br>当时有个孩子通过一些渠道，了解到我们可能会做一些网站，并且有个类似于单子的东西让我们试试看，大致是一个订餐平台，关于订餐的在13年也曾经想过，希望有一种更加良好的点评机制，然后暑假里开始设计，并且使用一些php的框架，当时思考再三，觉得应该使用一个好入门的框架进行设计，然后选择了thinkphp国人开发的这一个框架，当时对前端部分基本不会，于是分工让另一个孩子做前端部分，然后每天有空闲的时候，看看视频，看看文档，写写代码，同时又买了一套arduino设备，有空就可以开始鼓捣电子开源硬件吧，买了两块板，进行小灯泡，小开关等的搭建学习。在假期里有时也看看安卓的视频，做个小软件之类的，做了一个叫一个播放器，去思考安卓的视频播放器的实现过程，其中有底部选项卡，拼音归类，数据库sqlite的操作，Video播放等的知识点。</p>
+<p>假期总是很快的，开学之时讨论了一下，这个学期的发展。最后他们讨论出一个成立个工作室，做一个图书社交类的app，当时那几天也找下了工作地点，可以没事就可以去那工作或者休息，一开始有一个图书管理的想法，初步定位为一个图书管理加了社交功能，查看附近的人或者书，当时想的功能比较多，当然有的最后实现了有的没有，顺便报了两个比赛。但是基本都没什么结果。后来也可以总结几点，泛泛不如专注，有些人确实不是很容易去学会一些东西，大部分的东西都是只有我在做，直到最后才有几张图片，缺乏一种讨论的氛围，论团队合作的重要性。然后就有点不想和这个团队合作的感觉。</p>
+<p>由于那个二手笔记本噪声大，反应慢，感觉不太适合一些工作了，于是在网络寻觅一些性价比好的笔记本，主要考虑两点，便携和续航，最后选择了chromebook，第一次从国外买东西，很庆幸没被税，找了一款性价比还不错的型号，历经半个多月，笔记本也坐飞机。由于32G ssd不太适合装windows系统，于是装了ubuntu环境，享受linux的感觉。</p>
+<p>至于那个订餐项目，因为各方面的原因，种种不顺利，暂时就那么搁浅了。<br>#####0x05 合<br>十月，一开始在忙和完善图书社交平台，在赶进度。努力做出一个初步可以测试的产品，尽量在交的日期最后几刻不放弃。在交完作品以后发现在主界面部分如果不使用一些图片缓存框架的话，直接会导致报错，使用了一个图片缓存框架以后效果上不是很满意。但是当时没多想，也就没有抱太多希望。后来社团开始招新，然后就是一个联想茄子快传的比赛，基于他们的平台开发应用，联想社团那几天也是经常宣传，开宣讲会，虽然宣讲会那天看了一眼就走了，逐步从网络上了解这个比赛的信息，基本是做游戏，在上英语听说课的时候冒出一个做打砖块的想法，做游戏的话用引擎比较快，好多东西不需要深入考虑，于是找了几本cocos-2dx的书籍在那啃，感觉这个引擎社区人多，并且不是太笨重。从中了解导演、精灵、层等相关知识，当有一个初步的打砖块的模型的时候，准备结合人家的sdk进行进一步封装却遇到了问题，人家的是java写的，而这个引擎是C++，所以需要来回调用，所以用到了jni，但是jni处理相关调用的时候，却每次都没成功，实际上应该可以想办法解决，但是由于时间和经验问题，没精力去多想，既然人家的sdk是java的，就用java实现一个打砖块，然后结合起来吧。就这么连夜奋斗，做美工，做设计，就这么到了五十强，然后还得设计，还得完善，还得做美工，又是在临近交的日期，去连夜做。最后结果因为ui界面方面的分较其他的低所以没个好名次，毕竟ui不是强项，既不懂画图，也不懂原理。</p>
+<p>关于创业，有个孩子根据那个订餐项目报了一个校内的比赛，后来意外地进了前几名，直到决赛十强的时候，选到了最后一个出场，被迫借正装，关于市场的话编不了多少，所以有两孩子负责市场方面的提问，整体还是比较成功的，虽然项目和农业联系不太大，但是大多数评委还是很认可的，拿了金 奖。然后社团又参加山西省手机文化艺术节的展演，然后有时去去社团年会，然后又是晋商杯的创业比赛，根据六和杯创业比赛的名次，直接到了决赛，然后决赛虽然不是很好，但是也是没被淘汰，可以去榆次进一步比，但是榆次比的时候没太多准备，团队的协调不是很好，所以也结束了。</p>
+<p>在交完联想的作品以后，顺便看了一下搜狐快站的比赛，主要知识是前端部分的，基本不熟悉，但是做出个模型交得试一试吧，说不定人家让继续完善，结果这个比赛没多少人参加，一开始也是他们那边人联系的，一些比赛信息平台上也没有，最后取消了。后来这个比赛进入到了优秀选手，主办方要求发简历过去，试着看有没有实习机会。</p>
+<p>#####0x06 后记<br>时间匆忙，应该有部分内容没有总结到。</p>
+<p>总结几点：</p>
+<blockquote>
+<p>泛泛不如专注。</p>
+</blockquote>
+<blockquote>
+<p>有时间应该多去图书馆静心学习。</p>
+</blockquote>
+<blockquote>
+<p>不要急功近利。</p>
+</blockquote>
+<blockquote>
+<p>多进行总结。</p>
+</blockquote>
+<blockquote>
+<p>团队的协调问题。</p>
+</blockquote>
+<p>#####0x07 部分关键词<br>挂科，三维农大，学生会网站，社团活动，图书馆网站，移动互联网创业，wifi，nfc安全，饭盒网，四轴飞行器，移动互联网比赛，联想茄子快传，搜狐快站……</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="dubuqingfeng"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">dubuqingfeng</p><p class="is-size-6 is-block">dubuqingfeng</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">30</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/dubuqingfeng" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/dubuqingfeng"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://xiaoye.me" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Life</span></span><span class="level-right"><span class="level-item tag">xiaoye.me</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-02-25T08:35:48.270Z">2021-02-25</time></p><p class="title"><a href="/2021/02/25/hello-world/">Hello World</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-08-13T08:48:46.000Z">2018-08-13</time></p><p class="title"><a href="/2018/08/13/201410-chromebook-install-ubuntu/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-08-13T08:45:59.000Z">2018-08-13</time></p><p class="title"><a href="/2018/08/13/201503-git-fork-synchronized/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-08-13T08:45:45.000Z">2018-08-13</time></p><p class="title"><a href="/2018/08/13/201503-Rubik&#039;s-Cube-Robot-start/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2018-08-13T08:45:40.000Z">2018-08-13</time></p><p class="title"><a href="/2018/08/13/201503-Rubik&#039;s-Cube-Robot-Xiangxisikao/"> </a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">February 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/08/"><span class="level-start"><span class="level-item">August 2018</span></span><span class="level-end"><span class="level-item tag">13</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/06/"><span class="level-start"><span class="level-item">June 2018</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2017/02/"><span class="level-start"><span class="level-item">February 2017</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/12/"><span class="level-start"><span class="level-item">December 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/09/"><span class="level-start"><span class="level-item">September 2016</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2016/04/"><span class="level-start"><span class="level-item">April 2016</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2015/03/"><span class="level-start"><span class="level-item">March 2015</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">独步清风&#039;s Blog</a><p class="is-size-7"><span>&copy; 2021 dubuqingfeng</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
