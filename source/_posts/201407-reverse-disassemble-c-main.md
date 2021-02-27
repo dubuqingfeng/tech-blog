@@ -49,7 +49,7 @@ collect2.exe: error: ld returned 1 exit status
 
 在gcc执行汇编之后，在链接部分，当只打开选项-nostartfiles时，结果正常，未出现错误信息。而在-nodefaultlibs选项中，提示很多错误信息。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-1.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201407reverse-disassemble-c-main-1.png" class="responsive-img">
 
 说明main函数，依赖了一些系统标准库文件，在链接的时候，需要到了一些函数，例如pre_cpp_init、check_managed_app、pre_c_init、_tmainCRTStartup、_InterlockedCompareExchangePointer、duplicate_ppstrings、WinMainCRTStartup、mainCRTStartup、_mingw_prepare_except_fr_msvcr80_and_higher….
 
@@ -95,11 +95,11 @@ KERNEL32! 7c816fd7()
 
 Od载入，如图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-2.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201407reverse-disassemble-c-main-2.png" class="responsive-img">
 
 堆栈窗口如图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-3.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201407reverse-disassemble-c-main-3.png" class="responsive-img">
 
 通过堆栈，可以看到kelnel32调用了入口函数(mainCRTStartup)，对于od来说，main函数并不是Entry point，而是mainCRTStartup函数。
 
@@ -107,13 +107,13 @@ Od载入，如图所示。
 
 继续单步，单步到0040119E处，单步进入，可以看到有HeapCreate申请堆空间函数，大小由传递的参数决定，并且该call里有HeapDestroy销毁堆函数。因此0040119E为初始化堆空间，如图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-4.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201407reverse-disassemble-c-main-4.png" class="responsive-img">
 
 在004011C0处，od分析为GetCommandLineA函数，获取命令行参数信息的首地址。
 
 进入下面的那个call后，可以看到GetEnvironmentStringsW和GetEnvironmentStrings函数，获取环境变量的首地址，如图所示。以Unicode编码形式返回到寄存器和堆栈中，最后采用WideCharToMultiByte函数将Unicode字符串到一个多字节字符串
 
-<img src="https://oijlbmkg8.qnssl.com/blog201407reverse-disassemble-c-main-5.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201407reverse-disassemble-c-main-5.png" class="responsive-img">
 
 并且后续有参数分析的一些函数，环境变量信息分析，从而得到main函数所需的参数，然后在00402D4B位置，将参数传到main函数中，从而执行main函数中的内容。
 

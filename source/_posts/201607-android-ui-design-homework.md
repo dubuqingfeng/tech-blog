@@ -34,13 +34,13 @@ toc: true
 
 首先是模拟去哪儿网风格的卡片式手机客户端界面。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-01.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-01.png" class="responsive-img">
 
 通过截图我们可以看到整体界面基本由三部分组成（第三幅图的标题栏可自行实现），底部由底部选项卡组成，上面是一个轮播图片组件，中间是一个类似于Win8的Merto风格的磁贴式风格。（题目上说下标签页，滑动导航，卡片式是什么鬼），这些基本就是这个试题的组成部分了，其他都是一些不重要或者很简单的东西了。
 
 第二个是一个点菜应用界面设计。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-02.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-02.png" class="responsive-img">
 
 看风格总像是一个在 iPad 上的应用，其中主要是以下几点：
 
@@ -52,7 +52,7 @@ toc: true
 
 第三个是一个模拟手机QQ的界面，给出的截图也应该是5.x的版本，在以后的版本里，已经改回了侧滑菜单，不再有缩放效果。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-03.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-03.png" class="responsive-img">
 
 上方的消息电话的切换效果，以前是用两张图片来切换的，然后中间内容是一个ViewPager控制下的Fragment，然后滑动一下，切换界面的时候，更改标题栏的图片。
 
@@ -62,7 +62,7 @@ toc: true
 
 最后一个是一个新闻客户端，截图给了一个网易和凤凰视频的，两者结构上很相似，基本上是以下情况。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-04.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-04.png" class="responsive-img">
 
 除去标题栏以后，一个顶部选项卡，（当然网易的还有沉浸式状态栏），然后一个轮播图片组件，一个ListView的新闻列表，（当然网易的还有一个垂直跑马灯效果的新闻组件），底部选项卡。
 
@@ -165,11 +165,11 @@ private Class[] fragments = {HomeFragment.class, HomeFragment.class,
 
 效果图如下：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-05.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-05.png" class="responsive-img">
 
 莫名地总想测一下时间，利用`TraceView`测试`initView()`（即初始化fragmentTabHost的代码）的结果如下：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-06.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-06.png" class="responsive-img">
 
 # 0x03  轮播图片实现
 
@@ -181,7 +181,7 @@ private Class[] fragments = {HomeFragment.class, HomeFragment.class,
 
 因为没有什么特效，可以直接使用ImageView构建类似的风格，即如下图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-07.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-07.png" class="responsive-img">
 
 直接使用xml代码即可。
 
@@ -255,7 +255,7 @@ private Class[] fragments = {HomeFragment.class, HomeFragment.class,
 
 在新建项目的时候，选择`Master/Detail Flow`，然后运行到横向布局的平板上面，即是下图的效果。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-08.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-08.png" class="responsive-img">
 
 它这里主要通过建立了layout-w900dp文件夹，来进行屏幕的适配，以及在java代码里面，通过以下判断，在Adapter里设定一个标志变量，以求响应不同的屏幕。
 
@@ -275,7 +275,7 @@ if (findViewById(R.id.item_detail_container) != null) {
 
 这个以前也做过类似的，类似于外卖平台的商家界面，左边是分类，而右边是该分类对应下的商品。当时做的是网络应用，分类和商品都是网络获取的，当然现在这个自己生成一些数据就好。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-09.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-09.png" class="responsive-img">
 
 主要是有两个Adapter，一个分类的Adapter，即左边的Adapter，一个右边的Adapter。Adapter和传统的写法一致。
 
@@ -342,7 +342,7 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 然后运行应用，可以看到以下的效果。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-10.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-10.png" class="responsive-img">
 
 分析这个应用的xml，整个界面的xml如下：
 
@@ -379,7 +379,7 @@ listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
 我们在侧滑界面实现的那个Demo或者`Base Activity`里面，其实已经实现了点击弹出菜单的样式，即官方实现，当然这个各自有各自的实现，我们当然也可以使用PopupMenu、PopupWindow之类的去实现这些效果，此次简要写一下官方实现Menu。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-11.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-11.png" class="responsive-img">
 
 ```java
 //MainActivity.java
@@ -421,7 +421,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 
 #####0x09  顶部选项卡实现
 
-<img src="https://oijlbmkg8.qnssl.com/blog201607-android-ui-design-homework-12.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201607-android-ui-design-homework-12.png" class="responsive-img">
 
 在`build.gradle`里引入
 

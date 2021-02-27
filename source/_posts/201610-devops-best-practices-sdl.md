@@ -34,18 +34,18 @@ toc: true
 
 通过 Docker 进行持续集成，极大地提升了我们持续交付的能力。并且它可以达到开发与生产环境一致的效果，从原来的一天部署一次，通过它的可持续可以一天构建几十次之多。使得 Dev 和 Ops 的关系从原来的相互独立变成了相互融合，实际上还可以引入 QA 等人员。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-1.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201610-devops-best-practices-sdl-1.png" class="responsive-img">
 
 当熟悉了 DevOps 的最佳实践了以后，运用一些自动化工具，改变传统的开发部署流程，提高部署速度，构建可扩展的技术架构，
 提升软件交付的效率。从下图也可以看出，企业对于 DevOps 的重视程度在不断增加。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-2.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201610-devops-best-practices-sdl-2.png" class="responsive-img">
 
 # 如今的安全形势
 
 近几年，政府与各大公司在不断地推进网络安全的发展，但是还是每天有很多应急，数据泄露事件的发生。有数据表明，大多数网络安全问题是由 SQL 注入、网站后门、代码注入、未授权访问、弱口令等造成的。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-3.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201610-devops-best-practices-sdl-3.png" class="responsive-img">
 
 像这些问题是如何造成的呢，有很大一部分是由于开发上的不完善，导致有些地方可以利用，比如 SQL 注入，XSS 之类的，在代码上没有做好过滤，或者是进行参数化查询，而这些问题在开发的过程中就有能力去解决，可以使用一些代码审计或者代码检查服务。而中小公司，创业公司并没有配备专业的安全团队，而这些安全问题往往是致命的，可以被拿到权限，或者关键数据库等，而安全对于用户的影响也是很重要的。
 
@@ -75,7 +75,7 @@ toc: true
 
 由于业务的不同，每个公司的情况都不可能一致，所以需要 DevOps 和安全部门或者负责安全的人员进行共同做对应的配置及优化。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-4.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201610-devops-best-practices-sdl-4.png" class="responsive-img">
 
 # 在华为软件云的实践
 
@@ -90,7 +90,7 @@ toc: true
 
 这是其他同类网站所没有的。并且相比较而言，以前得使用很多服务，比如 bugly，Jenkins，bugclose 或者 bugtags，trello 或者 tower，git 等。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201610-devops-best-practices-sdl-5.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201610-devops-best-practices-sdl-5.png" class="responsive-img">
 
 # 后记
 

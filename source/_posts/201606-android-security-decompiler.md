@@ -73,7 +73,7 @@ java -classpath jd-gui-x.y.z.jar org.jd.gui.App
 
 以下即为反汇编出来的结果。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-01.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-01.png" class="responsive-img">
 
 2.APK改之理、APKDB、Android逆向助手、Android Killer之类软件
 
@@ -81,7 +81,7 @@ java -classpath jd-gui-x.y.z.jar org.jd.gui.App
 
 还有一个Jadx的软件也比较好用。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-02.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-02.png" class="responsive-img">
 
 3.在线反编译网站
 
@@ -148,7 +148,7 @@ release {
 
 混淆的效果如下图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-03.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-03.png" class="responsive-img">
 
 以及加速gradle编译的配置：
 
@@ -184,9 +184,9 @@ dex2jar作者在[Android混淆技巧与反混淆](http://secwiki.neu.edu.cn/wiki
 
 最后结果如下：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-04.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-04.png" class="responsive-img">
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-05.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-05.png" class="responsive-img">
 
 这样反混淆了以后，降低了代码阅读的难度，增加了应用被破解的风险。
 
@@ -229,7 +229,7 @@ so加壳，upx是最为so加壳的首选，以前在PC端也做过[upx的脱壳]
 
 然后添加到文件夹里，如下图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-security-decompiler-06.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-06.png" class="responsive-img">
 
 准备UPX壳编译环境：
 

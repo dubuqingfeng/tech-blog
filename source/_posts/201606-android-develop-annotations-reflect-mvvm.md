@@ -137,7 +137,7 @@ button = (Button) findViewById(R.id.btn_test);
 
 测试结果如下：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-01.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-develop-annotations-reflect-mvvm-01.png" class="responsive-img">
 
 # 0x02  注解
 
@@ -172,7 +172,7 @@ ButterKnife.bind(this);
 
 结果如下：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-02.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-develop-annotations-reflect-mvvm-02.png" class="responsive-img">
 
 # 0x03  泛型
 
@@ -193,7 +193,7 @@ editText = $(R.id.et_test);
 
 测试结果：
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-03.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-develop-annotations-reflect-mvvm-03.png" class="responsive-img">
 
 #####0x04  反射
 
@@ -226,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
 
 在DDMS的测试结果如下。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-04.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-develop-annotations-reflect-mvvm-04.png" class="responsive-img">
 
 # 0x05  在线生成
 
@@ -236,7 +236,7 @@ Convert your Android XML layouts into a set of declarations and binds to save yo
 
 生成的结果如图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201606-android-develop-annotations-reflect-mvvm-05.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-develop-annotations-reflect-mvvm-05.png" class="responsive-img">
 
 # 0x06  DataBinding
 

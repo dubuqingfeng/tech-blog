@@ -35,7 +35,7 @@ toc: true
 
 开场是由InfoQ官方的负责人员，郭蕾，霍泰稳(极客邦科技，InfoQ中国创始人兼CEO)，介绍了 InfoQ 的发展，与 InfoQ 和 Docker 的关系，毕竟整个大会大部分是在说docker及其相关，InfoQ很早的时候就推出了Docker专栏，并且推广过很多系列文章，以及还介绍了为什么举办此次会议。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201508-CNUTCon-Docker-Beijing-01.jpg" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201508-CNUTCon-Docker-Beijing-01.jpg" class="responsive-img">
 
 # 0x05 技术分享－28日上午
 首先是RedHat公司的副总裁，一种印度味的英语根本听不懂，也只能拍拍Slides，去感受RedHat对于Docker发展的贡献了。其中的软件定义一切，让想起了软件定义网络，都是一些不知所云的名词，需要学习的太多太多。
@@ -100,6 +100,6 @@ toc: true
 
 [在线视频](http://www.infoq.com/cn/CNUTCon)
 
-<img src="https://oijlbmkg8.qnssl.com/blog201508-CNUTCon-Docker-Beijing-02.jpg" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201508-CNUTCon-Docker-Beijing-02.jpg" class="responsive-img">
 
-<img src="https://oijlbmkg8.qnssl.com/blog201508-CNUTCon-Docker-Beijing-03.jpg" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201508-CNUTCon-Docker-Beijing-03.jpg" class="responsive-img">

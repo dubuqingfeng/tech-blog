@@ -32,7 +32,7 @@ Personal Knowledge Management，个人知识管理，可以参照[维基百科](
 
 我觉得个人知识管理主要分为输入、处理、输出、分享几个部分，如思维导图所示。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201704-personal-knowledge-management-01.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201704-personal-knowledge-management-01.png" class="responsive-img">
 
 同时打造闭环，并且还在不断的补充中。
 
@@ -44,7 +44,7 @@ Personal Knowledge Management，个人知识管理，可以参照[维基百科](
 
 一方面使用 [feedly](https://feedly.com/) 订阅自己技术相关的RSS，如下图所示。然后 ipad、mac 上客户端使用 Reeder 工具，相类似的RSS订阅器还有 [inoreader](http://www.inoreader.com/) 。
 
-<img src="https://oijlbmkg8.qnssl.com/blog201704-personal-knowledge-management-02.png" class="responsive-img">
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201704-personal-knowledge-management-02.png" class="responsive-img">
 
 微博/推特关注牛人以及行业相关，及时了解技术动态，感受技术的风向标。
 

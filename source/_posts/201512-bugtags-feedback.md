@@ -23,7 +23,7 @@ toc: true
 
 此处应该有图片：
 
-<img class="responsive-img" src="https://oijlbmkg8.qnssl.com/blog201512-bugtags-feedback-01.jpg">
+<img class="responsive-img" src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201512-bugtags-feedback-01.jpg">
 
 在公众号信息里，展示了提交Bug的流程，然后试着集成了一下sdk，整体集成的过程并不麻烦，很快感受到了效果，并推荐给了另一位开发。
 
@@ -58,18 +58,18 @@ toc: true
 
 此处应该有图片：
 
-<img class="responsive-img" src="https://oijlbmkg8.qnssl.com/blog201512-bugtags-feedback-02.jpg">
+<img class="responsive-img" src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201512-bugtags-feedback-02.jpg">
 
 # 0x04	伴随、
 在使用的过程中，提交的问题越来越多，收到的标签也越来越多，毕竟是一个APP应用，从0.1到0.9的过程（0.1指接入时已经开发了一个简单原型）。
 
 一张现在的统计，标签已经不少了，此处继续应该有图片：
 
-<img class="responsive-img" src="https://oijlbmkg8.qnssl.com/blog201512-bugtags-feedback-03.jpg">
+<img class="responsive-img" src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201512-bugtags-feedback-03.jpg">
 
 问题界面：
 
-<img class="responsive-img" src="https://oijlbmkg8.qnssl.com/blog201512-bugtags-feedback-04.jpg">
+<img class="responsive-img" src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201512-bugtags-feedback-04.jpg">
 
 随着不断的使用，发觉提高了不少效率，在这将近三个月的相处之中，感受到了Bugtags团队的不懈努力，感受到了对开发与测试的关注。
 
@@ -81,7 +81,7 @@ toc: true
 
 此处应该有图片：
 
-<img class="responsive-img" src="https://oijlbmkg8.qnssl.com/blog201512-bugtags-feedback-05.jpg">
+<img class="responsive-img" src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201512-bugtags-feedback-05.jpg">
 
 在今年的华北五省计算机应用大赛的答辩现场，也给评委们简单介绍了一下这个 Bug 管理平台，提高了一些开发效率。
 

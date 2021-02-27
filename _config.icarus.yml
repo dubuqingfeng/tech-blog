@@ -30,7 +30,7 @@ head:
         icons:
             -
                 # The path to the image file
-                src: ''
+                src: 'https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/common/github-icon-url.jpeg'
                 # A string containing space-separated image dimensions
                 sizes: ''
                 # A hint as to the media type of the image
@@ -168,7 +168,7 @@ donates:
     -
         type: alipay
         # Alipay qrcode image URL
-        qrcode: ''
+        qrcode: 'https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/common/blog_ali_pay.png'
     # # "Buy me a coffee" donate button configurations
     # -
     #     type: buymeacoffee
@@ -190,7 +190,7 @@ donates:
     -
         type: wechat
         # Wechat qrcode image URL
-        qrcode: ''
+        qrcode: 'https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/common/blog_wechat_pay.png'
 # Share plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Share/
 share:
