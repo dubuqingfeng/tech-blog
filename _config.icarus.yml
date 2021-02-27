@@ -223,7 +223,7 @@ widgets:
         # Author's current location
         location: Beijing
         # URL or path to the avatar image
-        avatar: 
+        avatar: https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/common/github-icon-url.jpeg
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
