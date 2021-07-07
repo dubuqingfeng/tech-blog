@@ -27,6 +27,7 @@ toc: true
     git remote add username https://github.com/xxx.git
     git fetch username
     git merge username/master
+    git rebase username/master
 
 3.提交改动，推到远程的master分支。
 
