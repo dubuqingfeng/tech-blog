@@ -15,21 +15,14 @@ toc: true
 
 #  0x00  TOC
 
-> 原理
-
-> 无混淆无加密无加壳
-
-> 仅混淆
-
-> 仅加密
-
-> 仅加壳
-
-> 自动化实现
-
-> 一些软件
-
-> 参考链接
++ 原理
++ 无混淆无加密无加壳
++ 仅混淆
++ 仅加密
++ 仅加壳
++ 自动化实现
++ 一些软件
++ 参考链接
 
 # 0x01  原理
 
@@ -320,51 +313,37 @@ extern "C" {void _init(void){}}    \\c
 
 # 0x07  一些软件
 
->Baksmali 和 Dedexer
-
->apktool
-
->JEB
-
->jadx
-
->jdgui
++ Baksmali 和 Dedexer
++ apktool
++ JEB
++ jadx
++ jdgui
 
 DEX转jar：
 
->enjarify
-
->dex2jar
++ enjarify
++ dex2jar
 
 app调试器：
 
->[gikdbg](http://gikir.com/product.php)
++ [gikdbg](http://gikir.com/product.php)
 
 代码混淆软件：
 
->Proguard
-
->DashO
-
->Dexguard
-
->DexProtector
-
->ApkProtect
-
->Shield4j
-
->Stringer
-
->Allitori
++ Proguard
++ DashO
++ Dexguard
++ DexProtector
++ ApkProtect
++ Shield4j
++ Stringer
++ Allitori
 
 对抗混淆：
 
->[dex-oracle](https://github.com/CalebFenton/dex-oracle)
-
->[simplify](https://github.com/CalebFenton/simplify)
-
->[bytecode-viewer](https://github.com/konloch/bytecode-viewer)
++ [dex-oracle](https://github.com/CalebFenton/dex-oracle)
++ [simplify](https://github.com/CalebFenton/simplify)
++ [bytecode-viewer](https://github.com/konloch/bytecode-viewer)
 
 [逆向工程集](https://github.com/Juude/droidReverse)
 

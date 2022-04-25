@@ -16,19 +16,13 @@ toc: true
 作为开发者或者安全研究员，开发或分析一些与网络相关的程序时，必然要涉及到 HTTP 协议，而了解信息的传输，是非常必要的。所以我们需要抓取并控制到网路流量，并且需要对中间人攻击有一定的认识。
 
 TOC：
->前言
-
->捕捉网络流量
-
->Charles抓包工具
-
->利用ettercap进行中间人
-
->MITM工具
-
->中间人的利用
-
->参考链接
++ 前言
++ 捕捉网络流量
++ Charles抓包工具
++ 利用ettercap进行中间人
++ MITM工具
++ 中间人的利用
++ 参考链接
 
 # 0x02    捕捉网络流量
 
@@ -165,8 +159,6 @@ android设备使用dSploit进行中间人攻击：
 
 热爱互联网，对操作系统和网络安全有狂热的追求，专业不限；熟悉漏洞挖掘、网络安全攻防技术，了解常见黑客攻击手法；掌握基本开发能力，熟练使用C/C++语言；对数据库、操作系统、网络原理有较好掌握；具有软件逆向，网络安全攻防或安全系统开发经验者优先。
 
->[bettercap](https://www.bettercap.org/)
-
->[Linux渗透之Ettercap详解](https://www.91ri.org/4408.html)
-
->[内网渗透小tricks](http://xkon.github.io/2015/04/17/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%B0%8Ftricks/)
++ [bettercap](https://www.bettercap.org/)
++ [Linux渗透之Ettercap详解](https://www.91ri.org/4408.html)
++ [内网渗透小tricks](http://xkon.github.io/2015/04/17/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E5%B0%8Ftricks/)

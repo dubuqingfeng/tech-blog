@@ -16,19 +16,13 @@ toc: true
 drozer 是一个 android 渗透与测试比较出名的一个框架，其源码托管在 [GitHub](https://github.com/mwrlabs/drozer)。我们可以利用其进行一些自动化测试工作，以及测试一些拒绝式服务，写一些 exploit 等。
 
 TOC：
->前言
-
->安装与配置 drozer
-
->安装模块
-
->动手写一些模块
-
->drozer module
-
->自动化测试脚本思考
-
->后记
++ 前言
++ 安装与配置 drozer
++ 安装模块
++ 动手写一些模块
++ drozer module
++ 自动化测试脚本思考
++ 后记
 
 # 0x02    安装与配置 drozer
 

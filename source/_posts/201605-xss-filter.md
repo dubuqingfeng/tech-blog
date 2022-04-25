@@ -17,19 +17,13 @@ toc: true
 
 TOC：
 
->基础的filter
-
->Python filter设计
-
->Java filter设计
-
->PHP filter设计
-
->系统层面filter
-
->后记
-
->相关paper
++ 基础的filter
++ Python filter设计
++ Java filter设计
++ PHP filter设计
++ 系统层面filter
++ 后记
++ 相关paper
 
 # 0x02  基础的filter
 
@@ -240,12 +234,8 @@ java\.lang
 
 # 0x08  相关paper及资料
 
-> 给开发者的终极XSS备忘录
-
-> [python-xss-filter](https://github.com/phith0n/python-xss-filter)
-
-> site:freebuf.com xss
-
-> [Wooyun Drops](http://drops.wooyun.org/?s=xss&submit=%E6%90%9C%E7%B4%A2)
-
-> [owasp-esapi-python](https://code.google.com/p/owasp-esapi-python/)
++ 给开发者的终极XSS备忘录
++  [python-xss-filter](https://github.com/phith0n/python-xss-filter)
++ site:freebuf.com xss
++ [Wooyun Drops](http://drops.wooyun.org/?s=xss&submit=%E6%90%9C%E7%B4%A2)
++ [owasp-esapi-python](https://code.google.com/p/owasp-esapi-python/)

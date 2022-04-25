@@ -14,19 +14,14 @@ toc: true
 ---
 
 # 0x00  TOC
->原理
 
->smali注入
-
->手机查看log并导出
-
->so打log
-
->发布(release)版屏蔽Log输出
-
->查看内核日志
-
->参考链接
++ 原理
++ smali注入
++ 手机查看log并导出
++ so打log
++ 发布(release)版屏蔽Log输出
++ 查看内核日志
++ 参考链接
 
 #####0x01  原理
 
