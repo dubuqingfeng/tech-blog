@@ -6,6 +6,7 @@ tags:
   - bitcoin
   - schnorr
 categories: bitcoin
+excerpt: 在隔离见证（Segwit）实行以后，令开发者振奋的 Schnorr 签名也将踏上日程。本文主要讲述比特币新特性：Schnorr 签名系列的初识 Schnorr 签名。介绍什么是 Schnorr 签名，以及发展历程，如何实现 Schnorr 的多重签名，还有 BCH 在 Schnorr 签名上的探索。
 permalink: 202012-bitcoin-schnorr-start.html
 author: admin
 toc: true
