@@ -1,29 +1,15 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Android Decompiler / 初探反编译 - 独步清风&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="独步清风&#039;s Blog"><meta name="msapplication-TileImage" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/common/github-icon-url.jpeg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="独步清风&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。"><meta property="og:type" content="blog"><meta property="og:title" content="独步清风"><meta property="og:url" content="https://dbqf.xyz/201606-android-security-decompiler.html"><meta property="og:site_name" content="独步清风&#039;s Blog"><meta property="og:description" content="本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-01.png"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-02.png"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-03.png"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-04.png"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-05.png"><meta property="og:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-06.png"><meta property="article:published_time" content="2016-06-25T09:24:00.000Z"><meta property="article:modified_time" content="2016-06-27T14:31:00.000Z"><meta property="article:author" content="admin"><meta property="article:tag" content="Android安全"><meta property="article:tag" content="反编译"><meta property="article:tag" content="Decompiler"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-01.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://dbqf.xyz/201606-android-security-decompiler.html"},"headline":"独步清风's Blog","image":["https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-01.png","https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-02.png","https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-03.png","https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-04.png","https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-05.png","https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/blog201606-android-security-decompiler-06.png"],"datePublished":"2016-06-25T09:24:00.000Z","dateModified":"2016-06-27T14:31:00.000Z","author":{"@type":"Person","name":"admin"},"description":"本文对 Android 反编译领域进行了简要的分析，如何进行反编译，以及如何混淆如何加密如何加壳，以及其对策，进行了实践和探索。"}</script><link rel="canonical" href="https://dbqf.xyz/201606-android-security-decompiler.html"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="独步清风's Blog" type="application/atom+xml">
-</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">独步清风&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" target="_blank" rel="noopener" href="https://xiaoye.me">Life</a><a class="navbar-item" target="_blank" rel="noopener" href="https://workflowy.com/s/uKaeJ838dX">Note</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/dubuqingfeng"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-06-25T09:24:00.000Z" title="6/25/2016, 5:24:00 PM">2016-06-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-06-27T14:31:00.000Z" title="6/27/2016, 10:31:00 PM">2016-06-27</time></span><span class="level-item"> admin </span><span class="level-item"><a class="link-muted" href="/categories/Android%E5%AE%89%E5%85%A8/">Android安全</a></span><span class="level-item">19 minutes read (About 2791 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Android Decompiler / 初探反编译</h1><div class="content"><h1 id="0x00-TOC"><a href="#0x00-TOC" class="headerlink" title="0x00  TOC"></a>0x00  TOC</h1><blockquote>
-<p>原理</p>
-</blockquote>
-<blockquote>
-<p>无混淆无加密无加壳</p>
-</blockquote>
-<blockquote>
-<p>仅混淆</p>
-</blockquote>
-<blockquote>
-<p>仅加密</p>
-</blockquote>
-<blockquote>
-<p>仅加壳</p>
-</blockquote>
-<blockquote>
-<p>自动化实现</p>
-</blockquote>
-<blockquote>
-<p>一些软件</p>
-</blockquote>
-<blockquote>
-<p>参考链接</p>
-</blockquote>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">独步清风&#039;s Blog</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" target="_blank" rel="noopener" href="https://xiaoye.me">Life</a><a class="navbar-item" target="_blank" rel="noopener" href="https://workflowy.com/s/uKaeJ838dX">Note</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/dubuqingfeng"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2016-06-25T09:24:00.000Z" title="6/25/2016, 5:24:00 PM">2016-06-25</time></span><span class="level-item">Updated&nbsp;<time dateTime="2016-06-27T14:31:00.000Z" title="6/27/2016, 10:31:00 PM">2016-06-27</time></span><span class="level-item"> admin </span><span class="level-item"><a class="link-muted" href="/categories/Android%E5%AE%89%E5%85%A8/">Android安全</a></span><span class="level-item">19 minutes read (About 2791 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Android Decompiler / 初探反编译</h1><div class="content"><h1 id="0x00-TOC"><a href="#0x00-TOC" class="headerlink" title="0x00  TOC"></a>0x00  TOC</h1><ul>
+<li>原理</li>
+<li>无混淆无加密无加壳</li>
+<li>仅混淆</li>
+<li>仅加密</li>
+<li>仅加壳</li>
+<li>自动化实现</li>
+<li>一些软件</li>
+<li>参考链接</li>
+</ul>
 <h1 id="0x01-原理"><a href="#0x01-原理" class="headerlink" title="0x01  原理"></a>0x01  原理</h1><p>首先在逆向领域，有一个是需要区别的。就是反汇编和反编译。</p>
 <p>反汇编把程序的原始机器码，翻译成较便于阅读理解的汇编代码。比如IDA、OD等。</p>
 <p>反编译，通常是将机器码(汇编语言)转换为高级编程语言。</p>
@@ -130,67 +116,39 @@
 <p>然后脱壳自然-d参数即可，需要判断标志是否为UPX!，以及处理变形等问题，脱完壳就可以使用IDA进行android的so分析了。</p>
 <h1 id="0x06-自动化实现"><a href="#0x06-自动化实现" class="headerlink" title="0x06  自动化实现"></a>0x06  自动化实现</h1><p>如何实现一些自动化脚本，进行反汇编的还原工作。</p>
 <p>当然网上已经有人实现过相关内容，比如Mac下的<a target="_blank" rel="noopener" href="https://github.com/dirkvranckaert/AndroidDecompiler">AndroidDecompiler</a>，或者是<a target="_blank" rel="noopener" href="https://github.com/luckyandyzhang/easy-android-decompiler">easy-android-decompiler</a>。</p>
-<h1 id="0x07-一些软件"><a href="#0x07-一些软件" class="headerlink" title="0x07  一些软件"></a>0x07  一些软件</h1><blockquote>
-<p>Baksmali 和 Dedexer</p>
-</blockquote>
-<blockquote>
-<p>apktool</p>
-</blockquote>
-<blockquote>
-<p>JEB</p>
-</blockquote>
-<blockquote>
-<p>jadx</p>
-</blockquote>
-<blockquote>
-<p>jdgui</p>
-</blockquote>
+<h1 id="0x07-一些软件"><a href="#0x07-一些软件" class="headerlink" title="0x07  一些软件"></a>0x07  一些软件</h1><ul>
+<li>Baksmali 和 Dedexer</li>
+<li>apktool</li>
+<li>JEB</li>
+<li>jadx</li>
+<li>jdgui</li>
+</ul>
 <p>DEX转jar：</p>
-<blockquote>
-<p>enjarify</p>
-</blockquote>
-<blockquote>
-<p>dex2jar</p>
-</blockquote>
+<ul>
+<li>enjarify</li>
+<li>dex2jar</li>
+</ul>
 <p>app调试器：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://gikir.com/product.php">gikdbg</a></p>
-</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://gikir.com/product.php">gikdbg</a></li>
+</ul>
 <p>代码混淆软件：</p>
-<blockquote>
-<p>Proguard</p>
-</blockquote>
-<blockquote>
-<p>DashO</p>
-</blockquote>
-<blockquote>
-<p>Dexguard</p>
-</blockquote>
-<blockquote>
-<p>DexProtector</p>
-</blockquote>
-<blockquote>
-<p>ApkProtect</p>
-</blockquote>
-<blockquote>
-<p>Shield4j</p>
-</blockquote>
-<blockquote>
-<p>Stringer</p>
-</blockquote>
-<blockquote>
-<p>Allitori</p>
-</blockquote>
+<ul>
+<li>Proguard</li>
+<li>DashO</li>
+<li>Dexguard</li>
+<li>DexProtector</li>
+<li>ApkProtect</li>
+<li>Shield4j</li>
+<li>Stringer</li>
+<li>Allitori</li>
+</ul>
 <p>对抗混淆：</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/dex-oracle">dex-oracle</a></p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/simplify">simplify</a></p>
-</blockquote>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/konloch/bytecode-viewer">bytecode-viewer</a></p>
-</blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/dex-oracle">dex-oracle</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/CalebFenton/simplify">simplify</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/konloch/bytecode-viewer">bytecode-viewer</a></li>
+</ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/Juude/droidReverse">逆向工程集</a></p>
 <h1 id="0x08-参考链接"><a href="#0x08-参考链接" class="headerlink" title="0x08  参考链接"></a>0x08  参考链接</h1><p>当然实际情况是混淆，加密，加壳综合起来的，实际情况要具体分析。</p>
 <p>参考链接：</p>
