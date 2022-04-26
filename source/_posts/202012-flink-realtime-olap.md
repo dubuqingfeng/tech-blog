@@ -30,9 +30,13 @@ toc: true
 
 ### 1.1 业务介绍 - ABCD
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/00.png" class="responsive-img">
+
 首先介绍一下我们的业务。总结来说就是ABCD, A是人工智能机器学习，B是区块链，C代表云，D是数据。这些模块不是独立的，是可以结合起来的。为什么这几年人工智能，区块链这么热门呢？因为大数据给了他们很好的支持。
 
 ### 1.2 业务介绍 - 区块链技术方案提供商
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/01.png" class="responsive-img">
 
 区块链是一个不可逆的分布式账本，我们的作用是让大家能更好的浏览账本。挖掘账本背后的信息数据。目前比特币的数据量级大概在几十亿到百亿，数据量大概在数10T，当然我们也有其他的一些货币，包括一些以太坊等的货币，还有智能合约分析的服务。
 
@@ -42,6 +46,9 @@ toc: true
 
 2.1 之前的架构
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/02.png" class="responsive-img">
+
+
 大概2018年的时候，竞争对手比较少，我们整体的架构就是上图。底层是区块链的节点，通过 Parser 不断的解析到 MySQL ，再从 MySQL 抽取到 Hive 或者 Presto ，从 Spark 跑各种定时任务分析数据，再通过可视化的查询，得到报表或者数据。架构的问题也是显而易见的：
 
 + 不能做到实时处理数据
@@ -49,11 +56,17 @@ toc: true
 
 2.2 遇到的需求与挑战
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/03.png" class="responsive-img">
+
+
 + 效率问题，这对于我们来说是非常常见的 SQL。表大概在几十亿的量级，跑这种 SQL ，可能需要很长时间， sql查询比较慢，严重影响我们的统计效率。
 + 数据不是实时的，需要等到一定的时间才会更新，比方说昨天的数据今天才能看到。
 + 实时需求，比方说实时风控，每当区块链出现一个区块，我们就要对它进行分析，但是区块出现的时间是随机的。缺乏完整的监控，有时候作业突然坏了，或者是没达到指标，我们不能及时知道。
 
 2.3 技术选型我们需要考虑什么
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/04.png" class="responsive-img">
+
 
 在技术选型的时候我们需要考虑什么呢？首先是缩容。今年（2020年）行情不太好，大家都在尽力缩减成本，更好的活下去。在成本有限的情况下，我们如何能做更多的东西，必须提高自身的效率，同时也要保证质量。所以我们需要找到一种平衡，在成本效率还有质量这三者之间进行一定的平衡。
 
@@ -61,15 +74,24 @@ toc: true
 
 ### 3.1 技术选型
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/05.png" class="responsive-img">
+
+
 俗话说的好，工具选的好，下班下的早，关于是否引入 Flink，我们想了很久，它和 Spark 相比优势在哪里？我们实际调研以后，发现 Flink 还是有很多优势，比方说灵活的窗口，精准的语义，低延迟，支持秒级的，实时的数据处理。
 
 因为团队本身更熟练 Python ，所以我们当时就选择了 PyFlink ，有专业的开发团队支撑，近几个版本变化比较大，实现了很多功能。在实时 OLAP 方面，数据库我们采用了 ClickHouse 。
 
 ### 3.2 为什么使用 ClickHouse 
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/06.png" class="responsive-img">
+
+
 为什么要使用 ClickHouse ？首先是快，查询的效率高。字节跳动，腾讯，快手等大公司都在用，老板觉得靠谱。同时我们也有 C++方面的技术积累，使用起来比较容易，成本不是太高。
 
 ### 3.3 实时 OLAP 架构
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/07.png" class="responsive-img">
+
 
 于是我们就形成了上图的架构，底层是数据源，包括区块链的节点，右边的这些，通过 Parser 解析到 Kafka ，Kafka 负责对接 Flink 和 Spark 任务，Flink 把数据输出到 MySQL 和 ClickHouse 。支持报表导出，数据统计，数据同步，OLAP 统计。我们的基础架构，比较适合中小公司，大公司比较复杂，中间会加很多 Kafka 。
 
@@ -79,9 +101,15 @@ toc: true
 
 ### 3.4 架构演进历程
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/08.png" class="responsive-img">
+
+
 我们的架构演进过程如上图，从2018年的 Spark 和 Hive ，到后来的 Tableau 可视化，今年接触了 Flink ，下半年开始使用 ClickHouse ，后来 Flink 任务比较多了，我们开发了简易的调度平台，开发者只需要上传任务，就会定时或者实时的跑任务。
 
 ### 3.5 架构演进思考
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/09.png" class="responsive-img">
+
 
 + 为什么演进这么慢，因为区块链的发展还没有达到一定量级，不可能像某些大公司，有上亿 B 级别或者 PB 级别的数据量。我们的数据量没有那么大，区块链是一个新鲜的事物，没有一定的历史。另外的问题就是钱不够，能用钱解决的问题都不是问题。我们的人员不足，人员成本上也有所控制。
 
@@ -91,6 +119,8 @@ toc: true
 
 ### 3.6 实时 OLAP 产生的价值
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/10.png" class="responsive-img">
+
 + 适合的是最好的，不要去盲目的追求新技术，比如说数据湖，他虽然挺好，但是我们的量级用不到，只有当达到一定的量级，才会考虑那些。
 + 我们不考虑建设技术中台，因为我们本来是一个中小公司，人员不是特别多，部门沟通起来比较容易，没有太多的隔阂，没有发展到一定的组织规模，所以我们没有打算发展技术中台，数据中台，我也劝大家，没有达到一定的量级的公司，不要去盲目跟风上中台。
 + 我们达到的效果是缩短了开发的时长，减少作业的运行时间。
@@ -98,6 +128,9 @@ toc: true
 ## 0x04  架构优化
 
 ### 4.1 Flink 和 ClickHouse
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/11.png" class="responsive-img">
+
 
 Flink 和 ClickHouse 之间有一些联动，我们自定义了三个工作。
 
@@ -107,6 +140,8 @@ Flink 和 ClickHouse 之间有一些联动，我们自定义了三个工作。
 
 ### 4.2 ClickHouse 遇到的问题
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/12.png" class="responsive-img">
+
 + 批量导入时失败和容错。
 + Upsert 的优化。
 + 开发了常用 UDF ，大家知道 ClickHouse 官方是不支持 UDF  的吗？只能通过打补丁，保证 ClickHouse 不会挂。
@@ -114,6 +149,8 @@ Flink 和 ClickHouse 之间有一些联动，我们自定义了三个工作。
 我们也在做一些开源方面的跟进，做一些补丁方面的尝试，把我们业务上，技术上常用的 UDF ，集合在一起。
 
 ### 4.3 批量导入策略
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/13.png" class="responsive-img">
 
 + 历史数据，可以认为是一种冷数据，相对来说不会经常改变的。导入的时候按照大小切分，按照主键排序，类似于 bitcoind ，它底层的 Checker 和 Fixer 工作，导入过程中及时报警和修复工作。做 CheckPoint 和修复工作，在导入过程中及时去报警和修复工作。
 
@@ -131,11 +168,16 @@ Flink 和 ClickHouse 之间有一些联动，我们自定义了三个工作。
 
 ### 4.4 Upsert 的优化
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/14.png" class="responsive-img">
+
+
 ClickHouse 不支持 Upsert ，主要在 sdk 方面做兼容，之前是直接往 Mysql 写数据，目标就是 sql 语句，修改对应的 sdk 增加临时小表的 join ，通过 join 临时小表，进行 Upsert 的操作。
 
 给大家举个例子，区块链地址账户余额，就像银行的账户余额，必须非常的精确。
 
 ### 4.5 Kubernetes 方面优化
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/15.png" class="responsive-img">
 
 Kubernetes 方面的优化。Kubernetes 是一个很完整的平台。
 
@@ -145,11 +187,15 @@ Kubernetes 方面的优化。Kubernetes 是一个很完整的平台。
 
 ### 4.6 如何保证一致性？
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/16.png" class="responsive-img">
+
 + 采用 Final 进行查询，等待它的数据合并完成。
 + 在数据方面的话，实现幂等性，保证他的唯一，通过主键排序，整理出来一组数据，再写入。
 + 写入异常时就及时修复和回填，保证最终一致性。
 
 ### 4.7 监控
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/17.png" class="responsive-img">
 
 使用Prometheus作为监控工具。使用方便，成本较低。
 
@@ -157,17 +203,24 @@ Kubernetes 方面的优化。Kubernetes 是一个很完整的平台。
 
 ### 5.1 从 1 到 2
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/18.png" class="responsive-img">
+
+
 + 扩展更多的业务和数据。之前我们的业务模式比较单一，只有数据方面的统计，之后会挖掘更多信息，包括链上追踪，金融方面的审计。
 + 赚更多的钱，尽可能的活下去，我们才能去做更多的事情，去探索更多的盈利模式。
 + 跟进 Flink 和 PyFlink 的生态，积极参与开源的工作，优化相关作业。探索多 sink 方面的工作，原生 Kubernetes 的实践。
 
 ### 5.2 从 2 到 3
 
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/19.png" class="responsive-img">
+
 + 数据建模的规范，规定手段，操作。
 + Flink 和机器学习相结合。
 + 争取拿到实时在线训练的业务，Flink 做实时监控，是非常不错的选择。大公司都已经有相关的实践。包括报警等操作。
 
 ### final
+
+<img src="https://dubuqingfeng.oss-cn-hongkong.aliyuncs.com/blog/tech/202012-flink-realtime/20.png" class="responsive-img">
 
 	总的来说的话，路漫漫其修远兮，使用 Flink 真不错。谢谢大家。
 

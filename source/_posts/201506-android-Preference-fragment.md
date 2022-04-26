@@ -1,11 +1,11 @@
 ---
-title: 如何使用PreferenceFragment方便地完成设置界面
+title: 如何使用 PreferenceFragment 方便地完成设置界面
 date: 2015-06-06 12:13
 updated: 2015-06-06 12:13
 tags: 
   - Android
   - PreferenceFragment
-excerpt: 在android中，利用PreferenceFragment快速完成设置界面以及一些思考。
+excerpt: 在android中，利用 PreferenceFragment 快速完成设置界面以及一些思考。
 categories: Android
 permalink: 201506-android-Preference-fragment.html
 author: admin
